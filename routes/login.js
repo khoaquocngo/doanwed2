@@ -1,17 +1,21 @@
 const User = require('../services/user')
 const {Router} = require('express')
 const asyncHandler = require('express-async-handler')
+const requireLogged = require('../middlewares/requirelogged');
 const router = new Router();
+
+router.use(requireLogged);
+
 router.get('/',function getLogin(req,res){
     res.render('pages/login')
 });
 router.post('/',asyncHandler(async function postLogin(req,res){
-    const user = await User.findUserByEmail(req.body.email)
+    const user = await User.findUserByEmail(req.body.email);
     if(!user || !User.verifyPassword(req.body.password,user.password)){
-        return res.redirect('/home')
+        return res.redirect('/home');
     }
     req.session.userId = user.id;
-    res.redirect('/home')   
+    res.redirect('/home');
 }));
 router.get('/:id/:token',asyncHandler(async function(req,res){
     const {id,token} = req.params;

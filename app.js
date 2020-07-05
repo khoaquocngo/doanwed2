@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 //auth middlewares
-app.use(require('./middlewares/auth'))
+app.use(require('./middlewares/auth'));
 
 //Routes
 app.get('/',(req,res)=>{

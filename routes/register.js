@@ -1,10 +1,14 @@
-const User = require('../services/user')
-const {Router} = require('express')
-const {body,validationResult} = require('express-validator')
-const crypto = require('crypto')
-const asyncHandler = require('express-async-handler')
-const Email = require('../services/email')
+const User = require('../services/user');
+const {Router} = require('express');
+const {body,validationResult} = require('express-validator');
+const crypto = require('crypto');
+const asyncHandler = require('express-async-handler');
+const Email = require('../services/email');
+const requireLogged = require('../middlewares/requirelogged');
+
 const router = new Router();
+router.use(requireLogged);
+
 router.get('/',function isRegister(req,res){
     res.render('pages/register')
 });

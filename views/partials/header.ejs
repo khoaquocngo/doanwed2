@@ -18,8 +18,10 @@
       <!-- List of links -->
       <nav role="navigation" id="navigation" class="list">
         <a href="/home" class="item -link">Home</a>
-        <% if(currentUser && currentUser.token===null) { %><a href="/profiles" class="item -link">Information</a> <% } else '' %>
-        <% if(currentUser && currentUser.token===null) { %><a href="/todos" class="item -link">Todo App</a> <% } else '' %>
+        <% if(currentUser && currentUser.token===null) {%>
+          <a href="#" class="item -link">Information</a> 
+          <a href="#" class="item -link">Todo App</a>
+        <% } %> 
         <% if(currentUser) {  %><a href="/logout" class="item -link">Logout</a>
         <% } else { %><a href="/login" class="item -link">Login</a> <% } %>
       </nav>
