@@ -1,0 +1,15 @@
+<%- include ('partials/header.ejs') -%>
+<!-- Home Page -->
+  <div class="container mt-5">
+    <!-- Check user exists -->
+    <% if(currentUser && currentUser.token!==null) {%>
+      <h4>Chào mừng <%= currentUser.displayName %> vui lòng activate</h4>
+    <% } if(currentUser && currentUser.token===null) { %>
+      <h3>Chào mừng <%= currentUser.displayName %>!</h3>
+    <% }%>
+     
+    <div class="background home img" >
+        <img src="/images/3509388.jpg" class="background-img">
+    </div>
+  </div>
+</body>

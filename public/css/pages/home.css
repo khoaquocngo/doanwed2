@@ -1,0 +1,17 @@
+/* pages home */
+.homep .logo
+{
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 50px auto 0 auto;
+}
+.homep .Contents
+{
+    margin-top: 5vw;
+    
+}
+.homep .source
+{
+    color: black;
+}

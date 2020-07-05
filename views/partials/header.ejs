@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="../images/checklists.png">
+<title>Todo App</title>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="css/header.css" rel='stylesheet' type='text/css' media="all" />
+
+</head>
+<body> 
+  <!-- Component -->
+  <div class="navbar-component">
+    <!-- Class `area` is a container -->
+    <div class="navbar area">
+      <!-- Logo -->
+      <a href="/" class="brand"><img style="width:40px" src="/images/checklists.png" alt=""></a>
+      <!-- List of links -->
+      <nav role="navigation" id="navigation" class="list">
+        <a href="/home" class="item -link">Home</a>
+        <% if(currentUser && currentUser.token===null) { %><a href="/profiles" class="item -link">Information</a> <% } else '' %>
+        <% if(currentUser && currentUser.token===null) { %><a href="/todos" class="item -link">Todo App</a> <% } else '' %>
+        <% if(currentUser) {  %><a href="/logout" class="item -link">Logout</a>
+        <% } else { %><a href="/login" class="item -link">Login</a> <% } %>
+      </nav>
+      <!-- Button to toggle the display menu  -->
+      <button data-collapse data-target="#navigation" class="toggle">
+        <!-- Hamburger icon -->
+        <span class="icon"></span>
+      </button>
+    </div>
+  </div>
