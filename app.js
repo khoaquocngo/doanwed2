@@ -21,6 +21,7 @@ app.use(require('./middlewares/auth'));
 app.get('/',(req,res)=>{
   res.render('pages/home')
 })
+
 app.get('/',require('./routes/index'))
 app.get('/home',require('./routes/index'))
 app.get('/profiles',(req,res)=>{
