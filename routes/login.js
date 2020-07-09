@@ -11,7 +11,7 @@ router.get('/',function getLogin(req,res){
 });
 router.post('/',asyncHandler(async function postLogin(req,res){
     const user = await User.findUserByEmail(req.body.email);
-    if(!user || !User.verifyPassword(req.body.password,user.password)){
+    if(!user || !User.verifyPassword(req.body.password, user.password)){
         return res.redirect('/home');
     }
     req.session.userId = user.id;

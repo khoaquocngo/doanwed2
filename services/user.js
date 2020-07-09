@@ -18,9 +18,9 @@ class User extends Model {
     static hassPassword(password){
         return bcrypt.hashSync(password,10);
     }
-    static verifyPassword(passwordHash,password)
+    static verifyPassword(password, passwordHash)
     {
-        return bcrypt.compareSync(passwordHash,password)
+        return bcrypt.compareSync(password, passwordHash)
     }
 }
 User.init({
