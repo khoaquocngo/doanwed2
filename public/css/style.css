@@ -81,22 +81,12 @@ img {
 
 /*--- end reset code ---*/
 
-body {
-	background:url(../images/maunen.jpg) no-repeat;
-	background-attachment:fixed;
-	background-position:center;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	font-family: 'Raleway', sans-serif;
-	font-weight:300;
-}
+
 h1.w3ls {
 	font-size:60px;
 	font-weight: 300;
 	font-weight: 500;
-	color: #000000ad;
+	color: #ffffff;
 	font-family: 'Monoton', cursive;
 	padding:40px 0;
 	text-align:center;
@@ -105,13 +95,15 @@ h1.w3ls {
 }
 .content-w3ls {
 	background-color:#202123;
-	width:70%;
+	opacity: 0.8;
+	width:95%;
+	min-height: 10vw;
 	margin:0 auto 50px;
 	padding:0;
 	border-radius: 5vw;
 }
 .content-w3ls .content-agile1 {
-    width: 50%;
+    width: 40%;
     float: left;
 	background: url(../images/back.jpg) no-repeat;
 	border-radius: 5vw 0 0 5vw;
@@ -140,7 +132,7 @@ p.agileits2 {
     text-transform: capitalize;
 }
 .content-w3ls .content-agile2 {
-	width: 50%;
+	width: 60%;
     float: left;
     padding: 25px 0 0;
 }
