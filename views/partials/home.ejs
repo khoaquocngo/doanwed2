@@ -1,0 +1,11 @@
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br/>
+<% if(currentUser && currentUser.token!==null) {%>
+        <h4>Chào mừng <%= currentUser.displayName %> vui lòng activate</h4>
+      <% } if(currentUser && currentUser.token===null) { %>
+        <h3>Chào mừng <%= currentUser.displayName %>!</h3>
+      <% }%>
+      <hr/>
+<%- include ('templateright.ejs') -%>
+<%- include ('templatefooter.ejs') -%>
