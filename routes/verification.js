@@ -10,9 +10,13 @@ router.get('/',function getLogin(req,res){
 });
 
 router.post('/',asyncHandler(async function postLogin(req,res){
+   user = await User.findUserById(req.session.userId);
    const code = req.body.code;
-   if(code === req.currentUser.code)
+   if(code === user.code)
    {
+    user.code = null;
+    user.save();
+    req.session.userId = user.id;
     res.redirect('/home');
    }
    const warning = "SAI MÃ";

@@ -18,12 +18,9 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(require('./middlewares/auth'));
 
 //Routes
-app.get('/',(req,res)=>{
-  res.render('pages/home')
-})
 
-app.get('/',require('./routes/index'))
-app.get('/home',require('./routes/index'))
+app.use('/',require('./routes/pageshome'))
+app.use('/home',require('./routes/index'))
 app.get('/profiles',(req,res)=>{
   res.render('profiles')
 })

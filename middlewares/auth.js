@@ -10,7 +10,10 @@ module.exports = asyncHandler(async function auth(req,res,next){
     if(!user){
         return next();
     }
-    req.currentUser =user;
+    if(user.code){
+        return next();
+    }
+    req.currentUser = user;
     res.locals.currentUser = user;
     next();
 })
