@@ -40,6 +40,9 @@ User.init({
   },
   token:{
     type:Sequelize.STRING,
+  },
+  code:{
+    type:Sequelize.STRING,
   }
 }, {
   sequelize: db,

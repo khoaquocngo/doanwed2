@@ -33,7 +33,6 @@ router.post('/',[
     if(!errors.isEmpty()){
         return res.status(422).render('pages/register',{errors:errors.array()});
     }
-    console.log('==============',req.body.email)
     const user = await User.create({
         email:req.body.email,
         displayName:req.body.displayName,

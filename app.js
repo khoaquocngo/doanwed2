@@ -29,6 +29,7 @@ app.get('/profiles',(req,res)=>{
 })
 app.use(require('./middlewares/auth'))
 app.use('/login',require('./routes/login'))
+app.use('/verification',require('./routes/verification'))
 app.use('/register',require('./routes/register'))
 app.get('/logout',require('./routes/logout'))
 app.use(express.static('public'))
