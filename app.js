@@ -20,6 +20,7 @@ app.use(require('./middlewares/auth'));
 //Routes
 
 app.use('/',require('./routes/pageshome'))
+app.use('/accountNumber',require('./routes/accountNumber'));
 app.use('/home',require('./routes/index'))
 app.get('/profiles',(req,res)=>{
   res.render('profiles')

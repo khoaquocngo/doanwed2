@@ -2,7 +2,6 @@ const bcrypt = require('bcrypt')
 const Sequelize = require('sequelize')
 const db = require('./db')
 
-console.log(db);
 const Model = Sequelize.Model;
 class User extends Model {
     static async findUserById(id){
