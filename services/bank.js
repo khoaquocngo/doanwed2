@@ -5,25 +5,38 @@ const db = require('./db')
 
 const Model = Sequelize.Model;
 class Bank extends Model {
-    static async findBankbyuserId(userId){
-      return Bank.findOne({
-        where:{
-          userId,
-        }
+  static async findBankbyuserId(userId) {
+    return Bank.findOne({
+ 
+      where: {
+        userId,
+      }
     })
-    }
+  }
+  static async findBankbyaccountNumber(accountNumber) {
+    return Bank.findOne({
+      include: [
+        {
+          model: User
+        }
+      ],
+      where: {
+        accountNumber,
+      }
+    })
+  }
 
-   
+
 }
 Bank.init({
   // attributes
-  
-accountNumber: {
+
+  accountNumber: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique:true
+    unique: true
   },
-defaultMoney: {
+  defaultMoney: {
     type: Sequelize.DOUBLE,
     defaultValue: 0,
   },

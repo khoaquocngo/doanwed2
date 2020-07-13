@@ -19,18 +19,18 @@ app.use(require('./middlewares/auth'));
 
 //Routes
 
-app.use('/',require('./routes/pageshome'))
+app.use('/',require('./routes/pageshome'));
 app.use('/accountNumber',require('./routes/accountNumber'));
-app.use('/home',require('./routes/index'))
-app.get('/profiles',(req,res)=>{
-  res.render('profiles')
-})
-app.use(require('./middlewares/auth'))
-app.use('/login',require('./routes/login'))
-app.use('/verification',require('./routes/verification'))
-app.use('/register',require('./routes/register'))
-app.get('/logout',require('./routes/logout'))
-app.use(express.static('public'))
+app.use('/home',require('./routes/index'));
+app.use('/transfers',require('./routes/transfers'));
+app.use('/notification',require('./routes/notification'));
+app.use('/verifyMoney',require('./routes/verifyMoney'));
+app.use(require('./middlewares/auth'));
+app.use('/login',require('./routes/login'));
+app.use('/verification',require('./routes/verification'));
+app.use('/register',require('./routes/register'));
+app.get('/logout',require('./routes/logout'));
+app.use(express.static('public'));
 
 db.sync().then(function(){
   app.listen(process.env.PORT || 5000, function(){

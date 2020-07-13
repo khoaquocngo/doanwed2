@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <form method="GET" action="notification/<%= transaction.code %>">
+            <div class="form-group">
+                <p>Mã giao dịch: <%= transaction.code %> </p>
+                <p>Tài khoản gửi: <%= transaction.accuontSender %> </p>
+                <p>Tài khoản nhận:   <%= transaction.accountReceiver %> </p>
+                <p>Tên người nhận: <%= transaction.nameReceiver %> </p>
+                <p>Số tiền chuyển: <%= transaction.Money %> </p>
+                <p>Phí chuyển: 2.200 VNĐ</p>
+                <p>Nội dung:  <%= transaction.content %></p>
+            </div>
+           
+            <button type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
+        </form>
+    </div>
+</body>
+</html>
