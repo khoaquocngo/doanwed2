@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Số tài khoản: <%= bank.accountNumber %>  </p>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
+
+<%- include ('templateright.ejs') -%>
+<br />
+<div>
+    <h1>Tài Khoản/ Thẻ của bạn</h1>
+</div>
+<div>
+    <p>Số tài khoản: <%= bank.accountNumber %> </p>
     <hr>
     <p>Tài khoản mặc định: <%= bank.defaultMoney %> </p>
     <hr>
     <p>Tài khoản tiết kiệm: <%= bank.savingMoney %> </p>
-</body>
-</html>
+</div>
+
+<%- include ('templatefooter.ejs') -%>

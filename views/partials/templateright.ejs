@@ -1,3 +1,9 @@
+<% if(currentUser && currentUser.token!==null) {%>
+    <h4>Chào mừng <%= currentUser.displayName %> vui lòng activate</h4>
+  <% } if(currentUser && currentUser.token===null) { %>
+    <h3>Chào mừng <%= currentUser.displayName %>!</h3>
+  <% }%>
+  <hr/>
 <div style="background-color:#00000009; padding: 3px; border-radius: 8px;">
     <div class="below_body">
 
@@ -38,6 +44,4 @@
                 document.getElementById("clock").innerHTML = days[day] + " , ngày " + date + " tháng " + months[month] + " năm " + year + ". Thời gian " + h + ":" + m + ":" + s + " " + AM_PM; setTimeout("refrClock()", 1000);
             } refrClock(); </script>
     </div>
-</div>
-<hr />
 </div>

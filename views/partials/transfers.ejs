@@ -1,14 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
 
-</head>
-<body>
-    <div class="container">
+<%- include ('templateright.ejs') -%>
+<br />
+<div class="container">
     <form method="POST" action="verifyMoney">
         <div class="form-group">
             <h5>Thông tin người chuyển</h5>
@@ -37,5 +33,5 @@
         <button type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
     </form>
     </div>
-</body>
-</html>
+
+<%- include ('templatefooter.ejs') -%>
