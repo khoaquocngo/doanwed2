@@ -1,31 +1,44 @@
-const { Router } = require('express');
+const {Router} = require('express');
 const router = new Router();
-const crypto = require('crypto');
+const asyncHandler = require('express-async-handler')
 const Bank = require('../services/bank');
 const Transaction = require('../services/transaction');
-const asyncHandler = require('express-async-handler');
-const { body } = require('express-validator');
 
 
+router.get('/:code', asyncHandler(async function (req, res) {
+    const { code } = req.params;
+    var status;
+    const transaction = await Transaction.findTransactionByCode(code);
+    const accuontSender = await Bank.findBankbyaccountNumber(transaction.accuontSender);
+    const accountReceiver = await Bank.findBankbyaccountNumber(transaction.accountReceiver);
+    if (accuontSender.defaultMoney >= transaction.Money) {
+        accuontSender.defaultMoney = Number(accuontSender.defaultMoney - transaction.Money);
+        accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney + transaction.Money);
+        var today = new Date();
+        transaction.date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " (" + today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear()  +")";
+        transaction.status = "Giao dịch thành công";
+    }
+    else {
+        status = "Giao dịch thất bại số dư không đủ";
+        return res.render("partials/notification", { status });
 
-router.post('/', asyncHandler(async function (req, res) {
+    }
+    if (transaction.charge == "1") {
+        accuontSender.defaultMoney = Number(accuontSender.defaultMoney - 2200);
+    }
+    else {
+        accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney - 2200);
+    }
+    accuontSender.save();
+    accountReceiver.save();
+    transaction.save();
+    status = "Giao dịch thành công";
+    return res.render("partials/notification", { status });
 
-    const receiver = await Bank.findBankbyaccountNumber(req.body.beneficiary);
-    const { money, charge, content } = req.body;
-    const transaction = await Transaction.create({
-        code: crypto.randomBytes(5).toString('hex').toUpperCase(),
-        accuontSender: req.bank.accountNumber,
-        accountReceiver: receiver.accountNumber,
-        nameReceiver: receiver.user.displayName,
-        Money: Number(money),
-        content: content,
-        charge: charge,
-        userId: req.currentUser.id,
-        status: 'Giao dịch chưa hoàn tất'
-    })
-    return res.render("partials/verifyMoney", { transaction });
 
 }));
+
+
 
 
 module.exports = router;

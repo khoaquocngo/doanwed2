@@ -11,6 +11,12 @@ class Transaction extends Model {
               }
           })
       }
+    static async findAllHistory(userId)
+    {
+        return Transaction.findAll({where: {
+            userId
+        }})
+    }
 
 }
 Transaction.init({
