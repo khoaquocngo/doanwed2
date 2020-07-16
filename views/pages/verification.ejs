@@ -5,20 +5,20 @@
 <link rel="icon" href="https://f0.pngfuel.com/png/982/55/white-laptop-icon-png-clip-art.png">
 <link href="css/pages/account.css" rel='stylesheet' type='text/css' media="all" />
 </head>
-<body>
-	<!-- Title -->
-<h1>Ngân Hàng Shiba Bank</h1>
+<body style="background-image:url(./images/maunen1.jpg);">
+    <h1 style="font-family: 'Times New Roman', Times, serif;color:  #AF1E40;font-size: 70px; font-weight: normal;">Ngân Hàng Shiba Bank</h1>
 
 <div class="container" id="container">
 	<!-- form login -->
 	<div class="form-container sign-in-container">
 		<form method="POST">
-			<h1>Verification</h1>
+			<h1>Mã xác thực</h1>
 			<% if(typeof warning != 'undefined') {%> 
 				<p style="color: #FF4B2B;"><%= warning %> </p>
 				<% } %> 
-			<input name="code" id="code" type="text" placeholder="Code" />
-			<button type="submit">confirm</button>
+			<input name="code" id="code" type="text" placeholder="Mã xác thực" />
+			<p>Vui lòng kiểm tra mail để nhận mã xác thực!</p>
+			<button type="submit">Đồng ý</button>
 		</form>
 	</div>
 	<!-- Introduce -->
@@ -26,9 +26,9 @@
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button onclick="window.location.href='/register'" style="background:#FFF!important;color:#FF4B2B!important;margin-top:65px;border:1px solid #FFF" type="submit">Register</button>
+				<h1>Welcome ShibaBank</h1>
+				<p>Ngân hàng ShibaBank kính chào quý khách!</p>
+				<button onclick="window.location.href='/home'" style="background:#FFF!important;color:#FF4B2B!important;margin-top:1vw;border:1px solid #FFF" type="submit">Quay lại</button>
 			</div>
 		</div>
 	</div>
@@ -36,12 +36,6 @@
 
 	<!-- author -->
 <footer>
-	<p>
-		Contact with me <i class="fa fa-heart"></i> by
-		<a target="_blank" href="https://www.facebook.com/tramhuu.nghiep1999">NghiepTram</a>
-		- Read how I created this and how you can join the challenge
-		<a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
-	</p>
 </footer>
 
 </body>

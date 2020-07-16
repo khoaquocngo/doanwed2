@@ -14,7 +14,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    <title>Trang Chủ</title>
+        
+    <title>Internet Banking</title>
 </head>
 
 <body style="background: brown;">
@@ -30,19 +31,36 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/home">Trang chủ <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Trợ giúp</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="/accountNumber">Thông tin tài khoản</a>
+                      <a class="dropdown-item" href="">Lịch sử giao dịch</a>
+                      <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a href="" class="nav-link">Chuyển tiền</a>
                 </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Thanh toán</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Tín dụng</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Tiết kiệm</a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link">Đầu tư</a>
+                </li>
+                
                 <li>
-                    <% if(currentUser) {  %><a href="/logout" class="nav-link">Logout</a>
+                    <% if(currentUser) {  %><a href="/logout" class="nav-link">Đăng xuất</a>
                     <% } else { %><a href="/login" class="item -link">Login</a> <% } %>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
         </div>
     </nav>
-    <div class="container">
+    <div style="margin-left: 2vw; margin-right: 2vw;">
         <div class="row" style="margin-top: 5vw;">

@@ -8,6 +8,17 @@
   <link rel="stylesheet" type="text/css" href="css/mainstyle.css">
   <link rel="stylesheet" type="text/css" href="css/reponsive.css">
   <title>ShibaBank Internet Banking | Home Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
@@ -50,41 +61,59 @@
       <div class="mainContent">
         <h2 class="title_art">Dịch Vụ<span class="sp_pow"></span></h2>
         <div class="mod_reg">
+          <%- include ('banner.ejs') -%>
           <div class="wrap_reg">
-            <div class="mReg left_mReg">
-              Thích nhập gì thì nhập... :v!!
-            
-            <script language="javascript">
-              document.onload = ctck();
-            </script>
-            
-                        </div>
-                        <!--end .left_mReg-->
-            
-                      <div class="mReg right_mReg">
-                          <div class="helpSer">
-                              <h3>Công cụ</h3>
-                                    <ul>
-                                      <!-- <li><a href="tcbaolanh.jsp" style="color:#AF1E40 !important;">Tra cứu bảo lãnh</a></li>  -->
-                                      <!-- <li><a href="tcbaolanh.jsp">Tra cứu bảo lãnh</a></li> -->
-                                      <li><a href="#">Tra cứu bảo lãnh</a></li>
-                                      <!-- <li><a href="otp_orders.jsp" style="color:#AF1E40 !important;font-size: 15px;font-family: Helvetica, sans-serif !important;font-weight: bold;">Đăng ký chuyển đổi số điện thoại nhận SMS OTP từ 11 số sang 10 số</a></li> -->
-                                    </ul>
-                            </div>
-                          <div class="helpSer">
-                              <h3>Trợ giúp</h3>
-                                    <ul>
-                                    <li><a href="./CanhBaoGiaoDichGiaMaoDichVuNganHangDienTu.pdf" style="color:#AF1E40 !important;font-size: 20px;font-family: Helvetica, sans-serif !important;">Khuyến Cáo Bảo Mật Thông Tin</a></li>
-                                      <li><a href="./Agr_clearCache.doc" style="color:#AF1E40 !important;">Xóa cache trên web browser</a></li>
-                                    </ul>
-                            </div>
-                        </div>
-                        <!--end .right_mReg-->
-                        <br class="clear">
-                    </div></div>
-                </div>
-                <!--end .mainContent-->
-              <br class="clear">
+            <div class="mReg left_mReg" style="font-size: 14px;">
+              <li style="font-size: 16; font-weight: bold;">SHIBABANK cung cấp tiện ích "Cấp lại mật khẩu trực tuyến"
+                cho khách hàng</li>
+              <p>
+                Từ ngày 03/9/2015, Shibabank cung cấp thêm tiện ích Cấp lại mật khẩu trực tuyến dịch vụ Ngân hàng điện
+                tử cho khách hàng. Các khách hàng đang sử dụng Internet Banking & Mobile Banking của Shibabank khi
+                quên mật khẩu đăng nhập, chỉ cần sử dụng tính năng Cấp lại mật khẩu trên trang đăng nhập của F@st iBank,
+                khai báo thông tin và thực hiện theo các bước hướng dẫn để được cấp lại mật khẩu mới.
+                Điều kiện sử dụng dịch vụ: Áp dụng đối với Khách hàng đã khai báo câu hỏi bí mật trước đó tại menu "Quản
+                lý mật khẩu" trên F@st i-bank
+              </p>
+              <hr/>
+              <li style="font-size: 16; font-weight: bold;">Các giao dịch ngân hàng trực tuyến của Shibabank hoàn toàn an toàn</li>
+              Shibabank hiện nay không sử dụng phiên bản phần mềm bị lỗi OpenSSL, các hệ thống giao dịch ngân hàng
+              trực tuyến của chúng tôi là an toàn. Chính vì vậy, khách hàng sử dụng dịch vụ ngân hàng trực tuyến của
+              Shibabank hoàn toàn không bị ảnh hưởng và có thể tiếp tục giao dịch bình thường và an toàn.
+              <script language="javascript">
+                document.onload = ctck();
+              </script>
+
+            </div>
+            <!--end .left_mReg-->
+
+            <div class="mReg right_mReg">
+              <div class="helpSer">
+                <h3>Công cụ</h3>
+                <ul>
+                  <!-- <li><a href="tcbaolanh.jsp" style="color:#AF1E40 !important;">Tra cứu bảo lãnh</a></li>  -->
+                  <!-- <li><a href="tcbaolanh.jsp">Tra cứu bảo lãnh</a></li> -->
+                  <li><a href="#">Tra cứu bảo lãnh</a></li>
+                  <!-- <li><a href="otp_orders.jsp" style="color:#AF1E40 !important;font-size: 15px;font-family: Helvetica, sans-serif !important;font-weight: bold;">Đăng ký chuyển đổi số điện thoại nhận SMS OTP từ 11 số sang 10 số</a></li> -->
+                </ul>
+              </div>
+              <div class="helpSer">
+                <h3>Trợ giúp</h3>
+                <ul>
+                  <li><a href="./CanhBaoGiaoDichGiaMaoDichVuNganHangDienTu.pdf"
+                      style="color:#AF1E40 !important;font-size: 20px;font-family: Helvetica, sans-serif !important;">Khuyến
+                      Cáo Bảo Mật Thông Tin</a></li>
+                  <li><a href="./Agr_clearCache.doc" style="color:#AF1E40 !important;">Xóa cache trên web browser</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!--end .right_mReg-->
+            <br class="clear">
+          </div>
+        </div>
+      </div>
+      <!--end .mainContent-->
+      <br class="clear">
     </div>
   </div>
 </body>

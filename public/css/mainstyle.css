@@ -236,6 +236,7 @@ input:focus,textarea:focus,select:focus {
 	width: 20%;
 	float: left;
 	padding-right: 36px;
+	margin-top: 3.5vw;
 }
 
 .navAside {
@@ -366,7 +367,6 @@ input:focus,textarea:focus,select:focus {
 }
 
 .wrap_reg {
-	background: url(../img/i-powerBg.png) right bottom no-repeat;
 	padding: 36px 0;
 }
 
@@ -1445,4 +1445,5 @@ table#tax-table,#tax-tablect {
 .row_input #hq-tax-table input{
 	padding-right: 2px;
 }
+
 /*end for HaiQuan*/
