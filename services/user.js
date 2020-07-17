@@ -14,6 +14,15 @@ class User extends Model {
             }
         })
     }
+    static forgotPassword(email,token)
+    {
+      return User.findOne({
+        where:{
+          email,
+            token,
+        }
+    })
+    }
     static hassPassword(password){
         return bcrypt.hashSync(password,10);
     }

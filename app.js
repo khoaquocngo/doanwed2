@@ -29,6 +29,9 @@ app.use('/verifyMoney',require('./routes/verifyMoney'));
 app.use(require('./middlewares/auth'));
 app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));
+app.use('/forgotpassword',require('./routes/forgotpassword'));
+app.use('/resetPassword',require('./routes/resetPassword'));
+
 app.use('/register',require('./routes/register'));
 app.get('/logout',require('./routes/logout'));
 app.use(express.static('public'));
