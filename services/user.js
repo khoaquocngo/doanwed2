@@ -14,15 +14,7 @@ class User extends Model {
             }
         })
     }
-    static forgotPassword(email,token)
-    {
-      return User.findOne({
-        where:{
-          email,
-            token,
-        }
-    })
-    }
+
     static hassPassword(password){
         return bcrypt.hashSync(password,10);
     }
@@ -45,6 +37,11 @@ User.init({
   password:{
     type: Sequelize.STRING,
     allowNull: false,
+  },
+  codeForgot:
+  {
+    type: Sequelize.STRING,
+
   },
   token:{
     type:Sequelize.STRING,
