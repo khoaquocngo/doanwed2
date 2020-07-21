@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Document</title>
-</head>
-<body>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
+
+<%- include ('templateright.ejs') -%>
+<br />
+<div class="container">
     <ul class="list-group">
         <% History.forEach(function(h){ %>
             <li class="list-group-item active">Mã giao dịch: <%= h.code %> </li>
@@ -16,10 +14,11 @@
             <li class="list-group-item">Thời gian: <%= h.date %></li>  
             <li class="list-group-item">Nội dụng: <%= h.content %></li>  
             <li class="list-group-item">Trạng thái giao dịch: <%= h.status %></li>  
+            <br>
         <% }); %>
+  
        
-    </ul>
-      
-   
-</body>
-</html>
+    </ul>    
+</div>
+<%- include ('templatefooter.ejs') -%>
+

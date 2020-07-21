@@ -27,12 +27,14 @@ app.use('/home',require('./routes/index'));
 app.use('/transfers',require('./routes/transfers'));
 app.use('/notification',require('./routes/notification'));
 app.use('/verifyMoney',require('./routes/verifyMoney'));
+app.use('/profile',require('./routes/profile'));
 app.use(require('./middlewares/auth'));
 app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));
 app.use('/forgotpassword',require('./routes/forgotpassword'));
 app.use('/resetPassword',require('./routes/resetPassword'));
-
+app.use('/guestAccount',require('./routes/manage/guestAccount')); 
+app.use('/adminAccount',require('./routes/manage/adminAccount'));
 app.use('/register',require('./routes/register'));
 app.get('/logout',require('./routes/logout'));
 app.use(express.static('public'));

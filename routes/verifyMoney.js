@@ -5,22 +5,31 @@ const Bank = require('../services/bank');
 const Transaction = require('../services/transaction');
 
 
-router.get('/:code', asyncHandler(async function (req, res) {
-    const { code } = req.params;
-    var status;
-    const transaction = await Transaction.findTransactionByCode(code);
+router.get('/', asyncHandler(async function (req, res) {
+    const transaction = await Transaction.findTransactionByCode(req.session.transaction.code);
+    res.render("partials/verifyMoney", {transaction})
+
+}));
+
+router.post('/', asyncHandler(async function (req, res) {
+    const code = req.body.code;
+    if (req.session.status != null)  req.session.status = null;
+    const transaction = await Transaction.findTransactionByCode(req.session.transaction.code);
     const accuontSender = await Bank.findBankbyaccountNumber(transaction.accuontSender);
     const accountReceiver = await Bank.findBankbyaccountNumber(transaction.accountReceiver);
-    if (accuontSender.defaultMoney >= transaction.Money) {
+    if (accuontSender.defaultMoney >= transaction.Money && transaction.code == code) {
         accuontSender.defaultMoney = Number(accuontSender.defaultMoney - transaction.Money);
         accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney + transaction.Money);
         var today = new Date();
-        transaction.date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " (" + today.getDate() + "/" + today.getMonth() + "/" + today.getFullYear()  +")";
+        transaction.date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " (" + today.getDate() + "/" + Number(today.getMonth() + 1 )  + "/" + today.getFullYear()  +")";
         transaction.status = "Giao dịch thành công";
     }
     else {
-        status = "Giao dịch thất bại số dư không đủ";
-        return res.render("partials/notification", { status });
+        if(accuontSender.defaultMoney < transaction.Money)
+        req.session.status = "Giao dịch thất bại số dư không đủ";
+        if(transaction.code != code)
+        req.session.status = "Giao dịch thất bại mã xác thực không đúng";
+    return res.redirect("/notification");
 
     }
     if (transaction.charge == "1") {
@@ -32,11 +41,14 @@ router.get('/:code', asyncHandler(async function (req, res) {
     accuontSender.save();
     accountReceiver.save();
     transaction.save();
-    status = "Giao dịch thành công";
-    return res.render("partials/notification", { status });
+    req.session.status = "Giao dịch thành công";
+    return res.redirect("/notification");
+	
 
 
 }));
+
+
 
 
 
