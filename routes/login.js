@@ -11,13 +11,20 @@ router.get('/',function getLogin(req,res){
 });
 router.post('/',asyncHandler(async function postLogin(req,res){
     const user = await User.findUserByEmail(req.body.email);
+    
     if(!user || !User.verifyPassword(req.body.password, user.password)){
         return res.redirect('/login');
     }
+    if(user.block === false)
+    {
     req.session.userId = user.id;
+    if(user.decentralize === 2 ||user.decentralize === 0)
+    {
+        return res.redirect('/adminAccount');
+    }
     if(user.token)
     {
-        res.redirect('/home');
+        return res.redirect('/home');
     }
     else
     {
@@ -26,6 +33,12 @@ router.post('/',asyncHandler(async function postLogin(req,res){
         await Email.send(user.email,'Mã đăng nhập là: ',`${user.code}`)
         res.redirect('verification');
     }
+    }
+    else
+    {
+        return res.redirect('/login');
+    }
+
 }));
 router.get('/:id/:token',asyncHandler(async function(req,res){
     const {id,token} = req.params;

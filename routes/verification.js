@@ -12,7 +12,7 @@ router.get('/',function getLogin(req,res){
 router.post('/',asyncHandler(async function postLogin(req,res){
    user = await User.findUserById(req.session.userId);
    const code = req.body.code;
-   if(code === user.code)
+   if(code === user.code && user.decentralize === 1)
    {
     user.code = null;
     user.save();

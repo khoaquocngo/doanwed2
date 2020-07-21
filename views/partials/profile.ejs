@@ -1,0 +1,54 @@
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
+
+<%- include ('templateright.ejs') -%>
+<br />
+<div class="container">
+<form action="" method="post" enctype="multipart/form-data">
+    <div>
+        <label for="">Họ và tên: </label>
+        <input type="text" name="displayName" id="displayName" value="<%= currentUser.displayName %> ">
+    </div>
+  <div>
+    <label for="">Emai: </label>
+    <input type="text" name="email" id="email" value="<%= currentUser.email %>" disabled>
+    <% if(currentUser.token == null) {%> (Đã xác thực)
+    <%} else{ %> <a href="/activateEmail">GỬI XÁC THỰC</a>
+    <% } %>   
+  </div>
+  <div>
+    
+      <% if(currentUser.CMND && currentUser.currentUser == "0"){ %>
+        <div>
+            <label for="">CMND</label>
+            <input type="text" name="email" id="email" value="<%= currentUser.CMND %>" disabled>
+        </div>
+        
+      <% }else{ %>
+        <fieldset>
+            <legend>CMND:</legend>
+        <% if(currentUser.CMND && currentUser.pictureCMND1 && currentUser.pictureCMND1){ %> 
+        <a href="/activateCMND">GỬI XÁC THỰC</a>
+        <% } %>  
+        <div>
+            <label for="">CMND: </label>
+            <input type="text" name="email" id="email" value="<%= currentUser.CMND %>" >
+        </div>
+        <div>
+            <label for="">Ảnh mặt trước: </label>
+            <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND1 %>" >
+        </div>
+        <div>
+            <label for="">Ảnh mặt sau: </label>
+        <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND2 %>" >
+        </div>
+        </fieldset>
+      <% } %> 
+
+  </div>
+ <input type="submit" value="Cập nhật">
+</form>
+</div>
+<%- include ('templatefooter.ejs') -%>
+

@@ -54,6 +54,10 @@ Transaction.init({
         type: Sequelize.INTEGER,
         allowNull: false,
     },
+    code: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
     status: {
         type: Sequelize.TEXT,
         allowNull: false,

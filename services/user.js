@@ -4,37 +4,56 @@ const db = require('./db')
 
 const Model = Sequelize.Model;
 class User extends Model {
-    static async findUserById(id){
-        return User.findByPk(id)
-    }
-    static async findUserByEmail(email){
-      return User.findOne({
-            where:{
-                email,
-            }
-        })
-    }
+  static async findUserById(id) {
+    return User.findByPk(id)
+  }
+  static async CreateManage(displayName,email, password) {
+    return User.create(
+      {
+        displayName,
+        email,
+        password,
+        decentralize: 2,
+        block: false,
+      }
+    )
+  }
+  static async findManage() {
+    return User.findAll(
+      {
+        where: {
+          decentralize: 2
+        },
+      }
+    )
+  }
+  static async findUserByEmail(email) {
+    return User.findOne({
+      where: {
+        email,
+      }
+    })
+  }
 
-    static hassPassword(password){
-        return bcrypt.hashSync(password,10);
-    }
-    static verifyPassword(password, passwordHash)
-    {
-        return bcrypt.compareSync(password, passwordHash)
-    }
+  static hassPassword(password) {
+    return bcrypt.hashSync(password, 10);
+  }
+  static verifyPassword(password, passwordHash) {
+    return bcrypt.compareSync(password, passwordHash)
+  }
 }
 User.init({
   // attributes
   email: {
     type: Sequelize.STRING,
     allowNull: false,
-    unique:true
+    unique: true
   },
   displayName: {
     type: Sequelize.STRING,
     allowNull: false,
   },
-  password:{
+  password: {
     type: Sequelize.STRING,
     allowNull: false,
   },
@@ -43,12 +62,39 @@ User.init({
     type: Sequelize.STRING,
 
   },
-  token:{
-    type:Sequelize.STRING,
+  token: {
+    type: Sequelize.STRING,
   },
-  code:{
-    type:Sequelize.STRING,
-  }
+  code: {
+    type: Sequelize.STRING,
+  },
+  CMND: {
+    type: Sequelize.STRING,
+
+  },
+  codeCMND: {
+    type: Sequelize.STRING,
+
+  },
+  //defaut admin: 0, guest: 1,  manage: 2
+  decentralize:
+  {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+
+  },
+  pictureCMND1: {
+    type: Sequelize.STRING,
+
+  },
+  pictureCMND2: {
+    type: Sequelize.STRING,
+  },
+  block: {
+    type: Sequelize.BOOLEAN,
+    allowNull: false,
+  },
+
 }, {
   sequelize: db,
   modelName: 'user'

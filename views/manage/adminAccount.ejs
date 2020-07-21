@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <h3>Quản lý tài khoản nhân viên</h3>
+    <div>
+        <form action="" method="post">
+            <input type="text" name="displayName" placeholder="Họ và tên">
+            <input type="text" name="username" placeholder="Tài khoản">
+            <input type="password" name="password" placeholder="Mật khẩu">
+            <input type="submit" value="Thêm nhân viên">
+          
+        </form>
+        <br>
+    </div>
+    <div>
+    <table class="table table-striped table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Họ và Tên</th>
+            <th scope="col">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(function(user){ %>
+          <tr>
+            <th scope="col"><%= user.email %> </th>
+            <th scope="col"><%= user.displayName %></th>
+            <th scope="col">
+            <% if(user.block === false){ %> 
+            <a href="adminAccount/<%=user.email%>/block">Khóa account</a>
+            <% } else { %>
+            <a href="adminAccount/<%=user.email%>/unblock">Mở account</a>
+            <% }%>
+            </th>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+    </div>
+</body>
+</html>

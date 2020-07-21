@@ -36,8 +36,10 @@ router.post('/',[
     }
     const user = await User.create({
         email:req.body.email,
-        displayName:req.body.displayName,
-        password:User.hassPassword(req.body.password),
+        displayName: req.body.displayName,
+        password: User.hassPassword(req.body.password),
+        decentralize: 1,
+        block: false,
         token: crypto.randomBytes(3).toString('hex').toUpperCase(),
     })
     const bank = await Bank.create({

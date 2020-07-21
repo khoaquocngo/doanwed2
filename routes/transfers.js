@@ -2,6 +2,7 @@ const {Router} = require('express');
 const router = new Router();
 const Bank = require('../services/bank')
 const Transaction = require('../services/transaction');
+const Email = require('../services/email');
 const crypto = require('crypto');
 
 const asyncHandler = require('express-async-handler')
@@ -23,10 +24,15 @@ router.post('/', asyncHandler(async function (req, res) {
         content: content,
         charge: charge,
         userId: req.currentUser.id,
-        status: 'Giao dịch chưa hoàn tất'
+        status: 'Giao dịch chưa hoàn tất',
+        code: crypto.randomBytes(3).toString('hex').toUpperCase(),
     })
-    console.log()
-    return res.render("partials/verifyMoney", { transaction });
+    console.log(transaction.code);
+    await Email.send( req.currentUser.email,'Mã chuyển khoản',`Mã xác thực chuyển khoản của bạn: ${transaction.code}`)
+    
+    if (req.session.transaction != null) req.session.transaction = null;
+    req.session.transaction = transaction;
+    return res.redirect("/verifyMoney");
 
 }));
 module.exports = router;
