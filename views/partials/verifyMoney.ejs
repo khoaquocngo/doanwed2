@@ -1,24 +1,48 @@
+
 <%- include ('templateheader.ejs') -%>
 <%- include ('templateleft.ejs') -%>
 <br />
 
 <%- include ('templateright.ejs') -%>
 <br />
+<h5 style="text-align: center;">Giao Dịch</h5>
+<hr/>
+<br/>
+<div class="row" >
+    <div class="col-md-8" style=" border-right:double ; background-image: linear-gradient(to bottom right, rgba(235, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
+        <div class="container">
+            <form method="POST">
+                <div class="form-group">
+                    
+                    <p>Mã giao dịch: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.code %>" disabled> </p>
+                    <p>Tài khoản gửi: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.accuontSender %>" disabled> </p>
+                    <p>Tài khoản nhận:   <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.accountReceiver %>" disabled> </p>
+                    <p>Tên người nhận: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.nameReceiver %>" disabled> </p>
+                    <p>Số tiền chuyển: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.Money %>" disabled> </p>
+                    <p>Phí chuyển: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="2.200 VNĐ" disabled></p>
+                    <p>Nội dung:  <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.content %>" disabled></p>
+                </div>
+                <br/>
+                <hr/>
 
-    <div class="container">
-        <form method="POST">
-            <div class="form-group">
-                <p>Mã giao dịch: <%= transaction.code %> </p>
-                <p>Tài khoản gửi: <%= transaction.accuontSender %> </p>
-                <p>Tài khoản nhận:   <%= transaction.accountReceiver %> </p>
-                <p>Tên người nhận: <%= transaction.nameReceiver %> </p>
-                <p>Số tiền chuyển: <%= transaction.Money %> </p>
-                <p>Phí chuyển: 2.200 VNĐ</p>
-                <p>Nội dung:  <%= transaction.content %></p>
-            </div>
-            <input class="" type="text" id="code" name="code" placeholder="Mã xác thực">
-            <button type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
-        </form>
+                <input class="form-control" type="text" id="code" name="code" placeholder="Mã xác thực">
+                <p style="font-size: 14px;">Vui lòng nhập mã chuyển khoản để thực hiện giao dịch này.</p>
+                <button type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
+            </form>
+            <br/>
+        </div>
     </div>
+    <div class="col-md-4">
+        <%- include ('ToolRight.ejs') -%>
+    </div>
+</div>
+    
 
 <%- include ('templatefooter.ejs') -%>

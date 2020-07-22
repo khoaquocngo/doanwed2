@@ -6,13 +6,27 @@
 <br />
 <div>
     <h1>Tài Khoản/ Thẻ của bạn</h1>
+    <br/>
+    <hr/>
 </div>
-<div>
-    <p>Số tài khoản: <%= bank.accountNumber %> </p>
-    <hr>
-    <p>Tài khoản mặc định: <%= bank.defaultMoney %> </p>
-    <hr>
-    <p>Tài khoản tiết kiệm: <%= bank.savingMoney %> </p>
-</div>
+<div class="row">
+    <div class="col-md-8" style="border-right:double ; background-image: linear-gradient(to bottom right, rgba(235, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
+        
+        <div>
+            
+            <p>Số tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= bank.accountNumber %>" disabled>  </p>
+            <hr>
+            <p>Tài khoản mặc định:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= bank.defaultMoney %>" disabled>  </p>
+            <hr>
+            <p>Tài khoản tiết kiệm:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= bank.savingMoney %>" disabled>  </p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <%- include ('ToolRight.ejs') -%>
+    </div>
 
-<%- include ('templatefooter.ejs') -%>
+
+    <%- include ('templatefooter.ejs') -%>
