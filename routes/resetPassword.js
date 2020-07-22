@@ -12,7 +12,6 @@ router.post('/',asyncHandler (async function(req,res){
     
     const {password1,password2,code} = req.body;
     const user  = await User.findUserByEmail(email);
-    console.log(user);
     if(password1 != password2)
     {
         return res.redirect('/resetPassword');

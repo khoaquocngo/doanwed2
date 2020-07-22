@@ -10,7 +10,8 @@ router.get('/', asyncHandler(async function (req, res) {
 }));
 router.post('/', asyncHandler(async function (req, res) {
     const { displayName, username, password } = req.body;
-    const user = await User.CreateManage(displayName, username, password);
+    const passhash = User.hassPassword(password);
+    const user = await User.CreateManage(displayName, username, passhash);
     res.redirect("/adminAccount");
 
 }));
