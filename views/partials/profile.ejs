@@ -4,51 +4,63 @@
 
 <%- include ('templateright.ejs') -%>
 <br />
-<div class="container">
-<form action="" method="post" enctype="multipart/form-data">
-    <div>
-        <label for="">Họ và tên: </label>
-        <input type="text" name="displayName" id="displayName" value="<%= currentUser.displayName %> ">
-    </div>
-  <div>
-    <label for="">Emai: </label>
-    <input type="text" name="email" id="email" value="<%= currentUser.email %>" disabled>
-    <% if(currentUser.token == null) {%> (Đã xác thực)
-    <%} else{ %> <a href="/activateEmail">GỬI XÁC THỰC</a>
-    <% } %>   
-  </div>
-  <div>
-    
-      <% if(currentUser.CMND && currentUser.currentUser == "0"){ %>
-        <div>
-            <label for="">CMND</label>
-            <input type="text" name="email" id="email" value="<%= currentUser.CMND %>" disabled>
-        </div>
-        
-      <% }else{ %>
-        <fieldset>
-            <legend>CMND:</legend>
-        <% if(currentUser.CMND && currentUser.pictureCMND1 && currentUser.pictureCMND1){ %> 
-        <a href="/activateCMND">GỬI XÁC THỰC</a>
-        <% } %>  
-        <div>
-            <label for="">CMND: </label>
-            <input type="text" name="email" id="email" value="<%= currentUser.CMND %>" >
-        </div>
-        <div>
-            <label for="">Ảnh mặt trước: </label>
-            <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND1 %>" >
-        </div>
-        <div>
-            <label for="">Ảnh mặt sau: </label>
-        <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND2 %>" >
-        </div>
-        </fieldset>
-      <% } %> 
-
-  </div>
- <input type="submit" value="Cập nhật">
-</form>
+<div>
+  <h1 >Cập Nhật Thông Tin Tài Khoản</h1>
+  <br/>
+  <hr/>
 </div>
+
+
+<div class="row">
+  <div class="col-md-10 " style="  border-right:double ;  background-image: linear-gradient(to bottom right , rgba(240, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
+      <div class="container">
+          <form method="POST" action="">
+              <div class="form-group">
+                <div>
+                  <h5   for="">Họ và tên: 
+                  <input  type="text" class="form-control" name="displayName" id="displayName" value="<%= currentUser.displayName %> "></h5>
+              </div>
+            <div>
+              <h5 for="">Email:
+              <input type="text" class="form-control" name="email" id="email" value="<%= currentUser.email %>" disabled> </h5>
+              <% if(currentUser.token == null) {%> 
+              <%} else{ %> <a href="/activateEmail">GỬI XÁC THỰC</a>
+              <% } %>   
+            </div>
+            <div>
+              
+                <% if(currentUser.CMND && currentUser.currentUser == "0"){ %>
+                  <div>
+                      <h5  for="">CMND:
+                      <input type="text"  name="email" id="email" value="<%= currentUser.CMND %>" disabled></h5>
+                  </div>
+                  
+                <% }else{ %>
+                  <fieldset>
+                       <!-- <legend>CMND:</legend>  -->
+                  <% if(currentUser.CMND && currentUser.pictureCMND1 && currentUser.pictureCMND1){ %> 
+                  <a href="/activateCMND">GỬI XÁC THỰC</a>
+                  <% } %>  
+                  <div>
+                      <h5 for="">CMND: 
+                      <input type="text" class="form-control" name="email" id="email" value="<%= currentUser.CMND %>" ></h5>
+                  </div>
+                  <div>
+                      <h5  for="">Ảnh mặt trước: 
+                      <input type="file"  name="email" id="email" value="<%= currentUser.pictureCMND1 %>" ></h5>
+                  </div>
+                  <div>
+                      <h5 for="">Ảnh mặt sau: 
+                  <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND2 %>" ></h5>
+                  </div>
+                  </fieldset>
+                <% } %> 
+          
+            </div>
+            <hr>
+            <button type="submit" class="btn btn-primary mb-2">Cập Nhật</button>
+          </hr>
+          </form>
+          </div>
 <%- include ('templatefooter.ejs') -%>
 

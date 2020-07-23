@@ -10,21 +10,21 @@
     <hr/>
 </div>
 <div class="row">
-    <div class="col-md-8" style="border-right:double ; background-image: linear-gradient(to bottom right, rgba(235, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
+    <div class="col-md-10" style="border-right:double ; background-image: linear-gradient(to bottom right, rgba(235, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
         
         <div>
             
-            <p>Số tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= bank.accountNumber %>" disabled>  </p>
+            <h5>Số tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= bank.accountNumber %>" disabled>  </h5>
             <hr>
-            <p>Tài khoản mặc định:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= bank.defaultMoney %>" disabled>  </p>
+            <h5>Tài khoản mặc định:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= bank.defaultMoney %>" disabled>  </h5>
             <hr>
-            <p>Tài khoản tiết kiệm:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= bank.savingMoney %>" disabled>  </p>
+            <h5>Tài khoản tiết kiệm:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= bank.savingMoney %>" disabled>  </h5>
         </div>
     </div>
-    <div class="col-md-4">
+    <div  class="col-md-5">
         <%- include ('ToolRight.ejs') -%>
     </div>
 

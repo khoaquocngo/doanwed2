@@ -5,10 +5,10 @@
 <%- include ('templateright.ejs') -%>
 <br />
 <hr/>
-<h5 style="text-align: center;">Thông tin người chuyển</h5>
+<h1 style="text-align: center;">Thông tin người chuyển</h1>
 <div class="form-group">
                     
-    <label for="accountNumber">Tài khoản nguồn</label>
+    <h5 for="accountNumber">Tài khoản nguồn</h5>
     <input type="text" class="form-control" id="accountNumber" name="accountNumber"
         value="<%= bank.accountNumber %>" disabled>
     <samp>Số dư khả dụng: <%= bank.defaultMoney %> VNĐ</samp>
@@ -16,12 +16,12 @@
 <br/>
 <hr/>
 <div class="row">
-    <div class="col-md-8" style=" border-right:double ; background-image: linear-gradient(to bottom right, rgba(235, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
+    <div class="col-md-10" style=" border-right:double ; background-image: linear-gradient(to bottom right, rgba(235, 197, 235, 0.89), rgba(121, 14, 19, 0.76));">
         <div class="container">
             <form method="POST" action="">
                 <div class="form-group">
                     <h5>Thông tin người hưởng</h5>
-                    <input type="text" class="form-control" name="beneficiary" id="beneficiary"
+                    <input type="text" class="form-control "  name="beneficiary" id="beneficiary"
                         placeholder="Tài khoản đích/ VND">
                 </div>
                 <div class="form-group">
@@ -29,7 +29,7 @@
                     <input type="number" class="form-control" name="money" id="money" placeholder="Số tiền (VND)">
                 </div>
                 <div class="form-group">
-                    <label for="">Phí giao dịch</label>
+                    <h5 for="">Phí giao dịch</h5>
                     <select class="form-control" name="charge" id="charge">
                         <option value="1">Người chuyển trả</option>
                         <option value="2">Người nhận trả</option>
@@ -43,7 +43,7 @@
         </div>
         
     </div>
-    <div class="col-md-4" >
+    <div class="col-md-5" >
         <%- include ('ToolRight.ejs') -%>
     </div>
 </div>
