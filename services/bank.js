@@ -40,10 +40,6 @@ Bank.init({
     type: Sequelize.DOUBLE,
     defaultValue: 0,
   },
-  savingMoney: {
-    type: Sequelize.DOUBLE,
-    defaultValue: 0,
-  },
 }, {
   sequelize: db,
   modelName: 'bank'
