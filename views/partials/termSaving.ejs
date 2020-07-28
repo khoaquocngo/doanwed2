@@ -1,20 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="post">
-        <label for="">Kỳ hạn</label>
-        <select name="term">
-            <option value="1">3 tháng</option>
-            <option value="2">6 tháng</option>
-            <option value="3">1 năm</option>
-        </select>
-        <input type="text" name="money" id="money" placeholder="Số tiền gửi">
-        <input type="submit" value="Gửi">
-    </form>
-</body>
-</html>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
+
+<%- include ('templateright.ejs') -%>
+<br />
+<hr />
+<h1 style="text-align: center;">Gửi tiết kiệm có kỳ hạn</h1>
+<h5>Số tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+    value="<%= bank.accountNumber %>" disabled>  </h5>
+<hr>
+<br />
+<hr />
+<div class="row">
+    <div class="col-md-7" style=" border-right:double ; ">
+        <div class="container">
+            <form action="" method="post">
+                <label for="">Kỳ hạn</label>
+                <select class="form-control" name="term">
+                    <option value="1">3 tháng</option>
+                    <option value="2">6 tháng</option>
+                    <option value="3">1 năm</option>
+                </select>
+                <br>
+                <br>
+                <input class="form-control" type="text" name="money" id="money" placeholder="Số tiền gửi">
+                <br>
+                <input class="form-control" type="submit" value="Gửi">
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4" style="margin-top: 10vw; margin-left: 2vw;">
+        <%- include ('ToolRight.ejs') -%>
+    </div>
+</div>
+
+<%- include ('templatefooter.ejs') -%>

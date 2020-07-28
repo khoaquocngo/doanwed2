@@ -1,4 +1,3 @@
-
 <div class="col-md-3" style="border-right:double ;">
     <div>
       <img src="../images/logo.png"
@@ -21,20 +20,30 @@
                 data-target="#submenu1"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Quản lí tài khoản ▾</span></a>
               <div class="collapse" id="submenu1" aria-expanded="false">
                 <ul class="flex-column pl-2 nav">
-                  <li class="nav-item"><a class="nav-link py-0" href="/accountNumber"><span>Tài khoản/Thẻ</span></a></li>
+                  <li class="nav-item" style="margin-left: 30px; "><a class="nav-link py-0" href="/accountNumber"><span>Tài khoản/Thẻ</span></a></li>
                   <li class="nav-item">
-                    <a class="nav-link py-0" href="/profile"><span>Thông tin tài khoản</span></a>
+                    <a class="nav-link py-0"  style="margin-top: 8px; margin-left: 30px;" href="/profile"><span>Thông tin tài khoản</span></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link py-0" href="/transactionHistory"><span>Liệt kê giao dịch trực tiếp</span></a>
+                    <a class="nav-link py-0"  style="margin-top: 8px; margin-left: 30px;" href="/transactionHistory"><span>Liệt kê giao dịch trực tiếp</span></a>
                   </li>
                 </ul>
               </div>
             </li>
-            <li class="nav-item"><a class="nav-link text-truncate" href="/changepassword"><i class="fa fa-bar-chart"></i> <span
-              class="d-none d-sm-inline">Quản Lí Mật Khẩu</span></a></li>
-            <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-bar-chart"></i> <span
-                  class="d-none d-sm-inline">Tiền gửi</span></a></li>
+              <li class="nav-item">
+                <a class="nav-link collapsed text-truncate" href="#submenu2" data-toggle="collapse"
+                  data-target="#submenu2"><i class="fa fa-table"></i> <span class="d-none d-sm-inline">Tiền gửi ▾</span></a>
+                <div class="collapse" id="submenu2" aria-expanded="false">
+                  <ul class="flex-column pl-2 nav">
+                    <li class="nav-item" style="margin-left: 30px;"><a class="nav-link py-0" href="/termSaving"><span>Gửi tiết kiệm có kỳ hạn</span></a></li>
+                    <li class="nav-item">
+                      <a class="nav-link py-0" style="margin-top: 8px; margin-left: 30px;" href="/nonTermSaving"><span>Gửi tiết kiệm không có kỳ hạn</span></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item"><a class="nav-link text-truncate" href="/changepassword"><i class="fa fa-bar-chart"></i> <span
+                class="d-none d-sm-inline">Quản Lí Mật Khẩu</span></a></li>
             <li class="nav-item"><a class="nav-link text-truncate" href="#"><i class="fa fa-download"></i> <span
                   class="d-none d-sm-inline">Export</span></a></li>
           </ul>
