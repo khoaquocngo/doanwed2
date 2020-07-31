@@ -21,6 +21,7 @@ app.use(require('./middlewares/auth'));
 
 app.use('/',require('./routes/pageshome'));
 app.use('/accountNumber',require('./routes/accountNumber'));
+
 app.use('/changepassword',require('./routes/changepassword'));
 app.use('/transactionHistory',require('./routes/transactionHistory'));
 app.use('/home',require('./routes/index'));
