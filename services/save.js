@@ -5,6 +5,13 @@ const { sequelize } = require('./user');
 
 const Model = Sequelize.Model;
 class Save extends Model {
+    static async findAllAcount(userId) {
+        return Save.findAll({
+              where:{
+                userId,
+              }
+          })
+      }
 }
 Save.init({
     // attributes
@@ -15,11 +22,6 @@ Save.init({
     },
     Money: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
-    },
-    //0 Không kỳ hạn - 1 Có kỳ hạn
-    type: {
-        type: Sequelize.INTEGER,
         allowNull: false,
     },
     //Tiền lại nhận được

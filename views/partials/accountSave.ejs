@@ -1,0 +1,37 @@
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
+
+<%- include ('templateright.ejs') -%>
+<br />
+<div>
+    <h1>Tài Khoản Tiết Kiệm</h1>
+    <br/>
+    <hr/>
+</div>
+<% save.forEach(function(s){ %>
+    <div class="col-md-7" style="border:double ;">
+        
+        <div>
+            
+            <h5>Số tài khoản tiết kiệm: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= s.code %>" disabled>  </h5>
+            <hr>
+            <h5>Số tiền gửi tiết kiệm:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= s.Money %>" disabled>  </h5>
+            <hr>
+            <h5>Kỳ hạn gửi:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= s.term %>" disabled>  </h5>
+            <hr>
+            <h5>Lãi suất hiện tại:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= s.interest %>" disabled>  </h5>
+           <button>Tất Toán</button>
+        </div>
+    </div>
+    <% }); %>
+    <div  class="col-md-4" style="margin-top: 10vw; margin-left: 2vw;">
+        <%- include ('ToolRight.ejs') -%>
+    </div>
+
+
+    <%- include ('templatefooter.ejs') -%>

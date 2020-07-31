@@ -2,17 +2,20 @@ const {Router} = require('express');
 const router = new Router();
 const asyncHandler = require('express-async-handler')
 const Bank = require('../services/bank');
+const Fee = require('../services/fee');
 const Transaction = require('../services/transaction');
 
 
 router.get('/', asyncHandler(async function (req, res) {
     const transaction = await Transaction.findTransactionByCode(req.session.transaction.code);
-    res.render("partials/verifyMoney", {transaction})
+    const fee = await Fee.findid(1);
+    res.render("partials/verifyMoney", {transaction,fee})
 
 }));
 
 router.post('/', asyncHandler(async function (req, res) {
     const code = req.body.code;
+    const fee = await Fee.findid(1);
     if (req.session.status != null)  req.session.status = null;
     const transaction = await Transaction.findTransactionByCode(req.session.transaction.code);
     const accuontSender = await Bank.findBankbyaccountNumber(transaction.accuontSender);
@@ -33,10 +36,10 @@ router.post('/', asyncHandler(async function (req, res) {
 
     }
     if (transaction.charge == "1") {
-        accuontSender.defaultMoney = Number(accuontSender.defaultMoney - 2200);
+        accuontSender.defaultMoney = Number(accuontSender.defaultMoney - fee.fee);
     }
     else {
-        accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney - 2200);
+        accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney - fee.fee);
     }
     accuontSender.save();
     accountReceiver.save();

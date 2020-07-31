@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = new Router();
-const Bank = require('../services/bank')
 const Save = require('../services/save');
+const Interest  = require('../services/inteRestate');
 const crypto = require('crypto');
 
 const asyncHandler = require('express-async-handler');
@@ -13,6 +13,8 @@ router.get('/', function (req, res) {
 router.post('/', asyncHandler(async function (req, res) {
     const {money} = req.body;
     var date = new Date();
+    const interest = await Interest.findid(0);
+
 
 
  //Tạo tài khoản tiết kiệm   
@@ -21,11 +23,10 @@ router.post('/', asyncHandler(async function (req, res) {
         const nonTerm = await Save.create({
         code: crypto.randomBytes(12).toString('hex').toUpperCase(),
         Money: money,
-        type: 0,
         interest: 0,
-        interestRate: 0.015,
+        interestRate: interest.interest,
         term: 0,
-        sentDate: date.getFullYear() + '/' + date.getDay() + '/' + date.getDate(),
+        sentDate:  Date.now() ,
         userId:  req.currentUser.id,
     })
     req.bank.defaultMoney = req.bank.defaultMoney - money;
@@ -38,12 +39,10 @@ else
 }
 
 
-
-
 // Trừ tiền tài khoản mặc định
 
 
-    return res.redirect('/');
+    return res.redirect('/home');
 
 }));
 module.exports = router;

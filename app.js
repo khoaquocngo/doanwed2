@@ -32,6 +32,7 @@ app.use(require('./middlewares/auth'));
 app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));
 app.use('/nonTermSaving',require('./routes/nonTermSaving'));
+app.use('/accountSave',require('./routes/accountSave'));
 app.use('/termSaving',require('./routes/termSaving'));
 app.use('/forgotpassword',require('./routes/forgotpassword'));
 app.use('/resetPassword',require('./routes/resetPassword'));
