@@ -21,7 +21,7 @@
                 value="<%= s.Money %>" disabled>  </h5>
             <hr>
             <h5>Kỳ hạn gửi:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= s.term %>" disabled>  </h5>
+                value="<% if (s.term === 0 ) { %> <%= "Không kỳ hạn" %> <% } else%><% if (s.term === 1 ){ %> <%= "Kỳ hạn 3 tháng" %> <% }else %><% if (s.term === 2 ) { %> <%= "Kỳ hạn 6 tháng" %> <% } %><% if (s.term === 2 ){ %> <%= "Kỳ hạn 9 tháng" %> <% }else %><% if (s.term === 2 ) { %> <%= "A" %> <% } %> %><% if (s.term === 3 ){ %> <%= "Kỳ hạn 1 năm" %> <% } %><% if (s.term === 2 ) { %> <%= "A" %> <% } %>" disabled>  </h5>
             <hr>
             <h5>Lãi suất hiện tại:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
                 value="<%= s.interest %>" disabled>  </h5>

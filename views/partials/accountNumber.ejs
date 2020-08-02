@@ -13,15 +13,15 @@
     <div class="col-md-7" style="border-right:double ;">
         
         <div>
-            
+            <h5>Họ Tên Chủ Sở Hữu: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                value="<%= currentUser.displayName %>" disabled>  </h5>
+            <hr>
             <h5>Số tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
                 value="<%= bank.accountNumber %>" disabled>  </h5>
             <hr>
             <h5>Tài khoản mặc định:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
                 value="<%= bank.defaultMoney %>" disabled>  </h5>
-            <hr>
-            <h5>Tài khoản tiết kiệm:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= bank.savingMoney %>" disabled>  </h5>
+         
         </div>
     </div>
     <div  class="col-md-4" style="margin-top: 10vw; margin-left: 2vw;">

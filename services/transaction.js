@@ -1,6 +1,6 @@
-const Sequelize = require('sequelize')
-const User = require('./user')
-const db = require('./db')
+const Sequelize = require('sequelize');
+const User = require('./user');
+const db = require('./db');
 
 const Model = Sequelize.Model;
 class Transaction extends Model {
@@ -70,5 +70,7 @@ Transaction.init({
 
 User.hasMany(Transaction);
 Transaction.belongsTo(User);
+
+
 
 module.exports = Transaction

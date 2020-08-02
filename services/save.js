@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const User = require('./user')
 const db = require('./db');
-const { sequelize } = require('./user');
+const Interests = require('./inteRestate');
 
 const Model = Sequelize.Model;
 class Save extends Model {
@@ -62,5 +62,8 @@ Save.init({
 
 User.hasMany(Save);
 Save.belongsTo(User);
+
+
+
 
 module.exports = Save;
