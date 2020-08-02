@@ -10,15 +10,20 @@
     <hr/>
 </div>
 <% save.forEach(function(s){ %>
-    <div class="col-md-7" style="border:double ;">
+    <div class="col-md-7">
         
         <div>
             
             <h5>Số tài khoản tiết kiệm: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
                 value="<%= s.code %>" disabled>  </h5>
             <hr>
-            <h5>Số tiền gửi tiết kiệm:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= s.Money %>" disabled>  </h5>
+                <h5>Số tiền gửi tiết kiệm: </h5>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="accountNumber" name="accountNumber" value="<%= s.Money %>" disabled>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">VNĐ</span>
+                </div>
+              </div>
             <hr>
             <h5>Kỳ hạn gửi:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
                 value="<% if (s.term === 0 ) { %> <%= "Không kỳ hạn" %> <% } else%><% if (s.term === 1 ){ %> <%= "Kỳ hạn 3 tháng" %> <% }else %><% if (s.term === 2 ) { %> <%= "Kỳ hạn 6 tháng" %> <% } %><% if (s.term === 2 ){ %> <%= "Kỳ hạn 9 tháng" %> <% }else %><% if (s.term === 2 ) { %> <%= "A" %> <% } %> %><% if (s.term === 3 ){ %> <%= "Kỳ hạn 1 năm" %> <% } %><% if (s.term === 2 ) { %> <%= "A" %> <% } %>" disabled>  </h5>

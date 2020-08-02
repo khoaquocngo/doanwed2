@@ -6,25 +6,38 @@
 <br />
 <div>
     <h1>Tài Khoản/ Thẻ của bạn</h1>
-    <br/>
-    <hr/>
+    <br />
+    <hr />
 </div>
 <div class="row">
-    <div class="col-md-7" style="border-right:double ;">
-        
+    <div class="col-md-7">
+
         <div>
-            <h5>Họ Tên Chủ Sở Hữu: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= currentUser.displayName %>" disabled>  </h5>
-            <hr>
+
             <h5>Số tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= bank.accountNumber %>" disabled>  </h5>
+                    value="<%= bank.accountNumber %>" disabled> </h5>
             <hr>
-            <h5>Tài khoản mặc định:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<%= bank.defaultMoney %>" disabled>  </h5>
-         
+            <h5>Tài khoản mặc định: </h5>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="accountNumber" name="accountNumber" value="<%= bank.defaultMoney %>" disabled>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">VNĐ</span>
+                </div>
+              </div>
+                <hr>
+                <h5>Tài khoản tiết kiệm: </h5>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="accountNumber" name="accountNumber" value="<%= bank.savingMoney %>" disabled>
+                <div class="input-group-prepend">
+                  <span class="input-group-text">VNĐ</span>
+                </div>
+              </div>
+                
+                        
+
         </div>
     </div>
-    <div  class="col-md-4" style="margin-top: 10vw; margin-left: 2vw;">
+    <div class="col-md-4" style="margin-top: 10vw; margin-left: 2vw;">
         <%- include ('ToolRight.ejs') -%>
     </div>
 
