@@ -1,9 +1,13 @@
 <br/>
+<div style="font-family:'Times New Roman', Times, serif;color: #180000; font-size: 40px;
+text-shadow: rgb(41, 1, 1) -1px -2px 0.5em;">
+
 <% if(currentUser && currentUser.token!==null) {%>
     <h4>Chào mừng <%= currentUser.displayName %> vui lòng activate</h4>
   <% } if(currentUser && currentUser.token===null) { %>
     <h3>Chào mừng <%= currentUser.displayName %>!</h3>
   <% }%>
+</div>
   <hr/>
 
 <div style="background-color:#00000009; padding: 3px; border-radius: 8px;">
