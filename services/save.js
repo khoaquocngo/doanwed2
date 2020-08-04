@@ -12,6 +12,13 @@ class Save extends Model {
               }
           })
       }
+    static async findByCode(code) {
+        return Save.findOne({
+              where:{
+                code,
+              }
+          })
+      }  
 }
 Save.init({
     // attributes
