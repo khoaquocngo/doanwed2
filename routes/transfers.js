@@ -9,6 +9,7 @@ const asyncHandler = require('express-async-handler')
 
 
 router.get('/', asyncHandler (async function (req, res) {
+   
     res.render('partials/transfers');
 }));
 router.post('/', asyncHandler(async function (req, res) {
@@ -28,11 +29,12 @@ router.post('/', asyncHandler(async function (req, res) {
         code: crypto.randomBytes(3).toString('hex').toUpperCase(),
     })
     console.log(transaction.code);
-    await Email.send( req.currentUser.email,'Mã chuyển khoản',`Mã xác thực chuyển khoản của bạn: ${transaction.code}`)
-    
+    await Email.send( req.currentUser.email,'Mã chuyển khoản',`Mã xác thực chuyển khoản của bạn: ${transaction.code}`) 
     if (req.session.transaction != null) req.session.transaction = null;
     req.session.transaction = transaction;
+    
     return res.redirect("/verifyMoney");
 
 }));
+
 module.exports = router;

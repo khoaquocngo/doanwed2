@@ -1,9 +1,10 @@
 const {Router} = require('express');
 const router = new Router();
-const asyncHandler = require('express-async-handler')
-
+const asyncHandler = require('express-async-handler');
 
 router.get('/', asyncHandler (async function (req, res) {
+    
     res.render('partials/accountNumber');
 }));
+
 module.exports = router;

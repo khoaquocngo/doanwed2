@@ -41,12 +41,14 @@ router.post('/',[
         decentralize: 1,
         block: false,
         token: crypto.randomBytes(3).toString('hex').toUpperCase(),
-    })
+    });
     const bank = await Bank.create({
         accountNumber: crypto.randomBytes(12).toString('hex'),
         userId: user.id
     })
     await Email.send(user.email,'Mã kích hoạt tài khoản',`link activate của bạn là : ${process.env.BASE_URL}/login/${user.id}/${user.token}`)
+    
     res.redirect('/login')
 }));
+
 module.exports = router;
