@@ -25,7 +25,8 @@
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
+      
+      <div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -42,25 +43,29 @@
                   <li class="nav-item">
                     <a href="/transfers" class="nav-link">Chuyển tiền</a>
                 </li>
-                  <li class="nav-item dropdown">
+                  <li  class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Gửi Tiết Kiệm ▾</a>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="/termSaving">Có thời hạn</a>
                    
                       <a class="dropdown-item" href="/nonTermSaving">Không có thời hạn</a>
                     </div>
+                   
                   </li>
+                
                 <li class="nav-item">
                     <a href="/transactionHistory" class="nav-link">Lịch sử giao dịch</a>
                 </li>
-               
-                
+          
+                <div style="margin-left:28vw;">
                 <li>
                     <% if(currentUser) {  %><a href="/logout" class="nav-link">Đăng xuất</a>
                     <% } else { %><a href="/login" class="item -link">Login</a> <% } %>
                 </li>
             </ul>
+        
         </div>
+    </div>
     </nav>
     <div style="margin-left: 2vw; margin-right: 2vw; background-image: linear-gradient(to bottom right, rgb(233, 231, 231), rgba(255, 255, 255, 0.822)); ">
         <div class="row" style="margin-top: 0">

@@ -5,7 +5,7 @@
 
 <%- include ('templateright.ejs') -%>
 <br />
-<h5 style="text-align: center;">Giao Dịch</h5>
+<h1 style="text-align: center;">Giao Dịch</h1>
 <hr/>
 <br/>
 <div class="row" >
@@ -14,27 +14,27 @@
             <form method="POST">
                 <div class="form-group">
                     
-                    <p>Mã giao dịch: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= transaction.code %>" disabled> </p>
-                    <p>Tài khoản gửi: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= transaction.accuontSender %>" disabled> </p>
-                    <p>Tài khoản nhận:   <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= transaction.accountReceiver %>" disabled> </p>
-                    <p>Tên người nhận: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= transaction.nameReceiver %>" disabled> </p>
-                    <p>Số tiền chuyển: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= transaction.Money %>" disabled> </p>
-                    <p>Phí chuyển: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= fee.fee %>" disabled></p>
-                    <p>Nội dung:  <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                        value="<%= transaction.content %>" disabled></p>
+                    <h5>Mã giao dịch: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.code %>" disabled> </h5>
+                    <h5>Tài khoản gửi: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.accuontSender %>" disabled> </h5>
+                    <h5>Tài khoản nhận:   <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.accountReceiver %>" disabled> </h5>
+                    <h5>Tên người nhận: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.nameReceiver %>" disabled> </h5>
+                    <h5>Số tiền chuyển: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.Money %>" disabled> </h5>
+                    <h5>Phí chuyển: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= fee.fee %>" disabled></h5>
+                    <h5>Nội dung:  <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+                        value="<%= transaction.content %>" disabled></h5>
                 </div>
                 <br/>
                 <hr/>
 
                 <input class="form-control" type="text" id="code" name="code" placeholder="Mã xác thực">
                 <p style="font-size: 14px;">Vui lòng nhập mã chuyển khoản để thực hiện giao dịch này.</p>
-                <button type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
+                <button  style="margin-left:13vw;margin-right:11vw;" type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
             </form>
             <br/>
         </div>
