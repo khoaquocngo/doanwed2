@@ -83,12 +83,9 @@ User.init({
     allowNull: false,
 
   },
-  pictureCMND1: {
+  pictureCMND: {
     type: Sequelize.STRING,
 
-  },
-  pictureCMND2: {
-    type: Sequelize.STRING,
   },
   block: {
     type: Sequelize.BOOLEAN,

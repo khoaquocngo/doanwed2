@@ -13,6 +13,9 @@ class Bank extends Model {
       }
     })
   }
+
+  
+
   static async findBankbyaccountNumber(accountNumber) {
     return Bank.findOne({
       include: [

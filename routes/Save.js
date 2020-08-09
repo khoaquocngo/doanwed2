@@ -6,20 +6,20 @@ const asyncHandler = require('express-async-handler');
 const crypto = require('crypto');
 
 router.get('/', asyncHandler (async function (req, res) {
-
-    res.render('partials/termSaving');
+    const interest = await Interest.find();
+    res.render('partials/Save',{interest});
 }));
 router.post('/', asyncHandler(async function (req, res) {
     const {term,money} = req.body;
     const interest = await Interest.findid(term);
     //Tạo tài khoản tiết kiệm   
     if(req.bank.defaultMoney >= money) {
-        const nonTerm = await Save.create({
+        await Save.create({
         code: crypto.randomBytes(12).toString('hex').toUpperCase(),
         Money: money,
-        interest: 0,
         interestRate: interest.interest,
-        term: term,
+        term: interest.id,
+        nameTerm: interest.Name,
         sentDate:  Date.now() ,
         userId:  req.currentUser.id,
     })
@@ -27,7 +27,7 @@ router.post('/', asyncHandler(async function (req, res) {
         req.bank.save();
     } else {
         war = 'Tài khoản không đủ';
-        res.render('partials/nonTermSaving',{war});
+        res.render('partials/Save',{war});
     }
 
     return res.redirect('/home');

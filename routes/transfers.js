@@ -13,27 +13,35 @@ router.get('/', asyncHandler (async function (req, res) {
     res.render('partials/transfers');
 }));
 router.post('/', asyncHandler(async function (req, res) {
-
-    const receiver = await Bank.findBankbyaccountNumber(req.body.beneficiary);
-    const { money, charge, content } = req.body;
-    const transaction = await Transaction.create({
-        code: crypto.randomBytes(5).toString('hex').toUpperCase(),
-        accuontSender: req.bank.accountNumber,
-        accountReceiver: receiver.accountNumber,
-        nameReceiver: receiver.user.displayName,
-        Money: Number(money),
-        content: content,
-        charge: charge,
-        userId: req.currentUser.id,
-        status: 'Giao dịch chưa hoàn tất',
-        code: crypto.randomBytes(3).toString('hex').toUpperCase(),
+    if(req.currentUser.token == null){ 
+        const receiver = await Bank.findBankbyaccountNumber(req.body.beneficiary);
+        if(!receiver){
+            if(req.session.status != null) req.session.status = null;
+            req.session.status = "Tài khoản người nhận không tồn tại";
+            return res.redirect("/notification");
+        }
+        const { money, charge, content } = req.body;
+        const transaction = await Transaction.create({
+            code: crypto.randomBytes(5).toString('hex').toUpperCase(),
+            accuontSender: req.bank.accountNumber,
+            accountReceiver: receiver.accountNumber,
+            nameReceiver: receiver.user.displayName,
+            Money: Number(money),
+            content: content,
+            charge: charge,
+            userId: req.currentUser.id,
+            status: 'Giao dịch chưa hoàn tất',
+            code: crypto.randomBytes(3).toString('hex').toUpperCase(),
     })
-    console.log(transaction.code);
-    await Email.send( req.currentUser.email,'Mã chuyển khoản',`Mã xác thực chuyển khoản của bạn: ${transaction.code}`) 
-    if (req.session.transaction != null) req.session.transaction = null;
-    req.session.transaction = transaction;
-    
-    return res.redirect("/verifyMoney");
+        await Email.send( req.currentUser.email,'Mã chuyển khoản',`Mã xác thực chuyển khoản của bạn: ${transaction.code}`) 
+        if (req.session.transaction != null) req.session.transaction = null;
+        req.session.transaction = transaction;
+        return res.redirect("/verifyMoney");
+} else{
+        if(req.session.status != null) req.session.status = null;
+        req.session.status = "Cần xác nhận Mail để thực hiện chức năng này";
+        return res.redirect("/notification");
+}
 
 }));
 

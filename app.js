@@ -32,16 +32,18 @@ app.use('/profile',require('./routes/profile'));
 app.use(require('./middlewares/auth'));
 app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));
-app.use('/nonTermSaving',require('./routes/nonTermSaving'));
 app.use('/accountSave',require('./routes/accountSave'));
-app.use('/termSaving',require('./routes/termSaving'));
+app.use('/save',require('./routes/Save'));
 app.use('/forgotpassword',require('./routes/forgotpassword'));
 app.use('/resetPassword',require('./routes/resetPassword'));
 app.use('/guestAccount',require('./routes/manage/guestAccount')); 
 app.use('/adminAccount',require('./routes/manage/adminAccount'));
+app.use('/recharge',require('./routes/manage/recharge'));
 app.use('/register',require('./routes/register'));
 app.get('/logout',require('./routes/logout'));
 app.use(express.static('public'));
+app.use(express.static('upload'));
+
 
 db.sync().then(function(){
   app.listen(process.env.PORT || 5000, function(){

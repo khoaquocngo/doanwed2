@@ -11,6 +11,14 @@ class InteRestate extends Model {
               }
           })
       }
+
+    static async find() {
+        return InteRestate.findAll({
+              order: [
+                ['id', 'ASC']
+            ],
+          })
+      }
    
 }
 InteRestate.init({
@@ -23,6 +31,10 @@ InteRestate.init({
         type: Sequelize.DOUBLE,
         allowNull: false,
     },
+    numberMonth: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    }
     
 }, 
 {

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/imgcmn.css">
+<script src=""></script>
 <%- include ('templateheader.ejs') -%>
 <%- include ('templateleft.ejs') -%>
 <br />
@@ -12,7 +14,7 @@
 <div>
   <div>
     <div class="container">
-      <form method="POST" action="">
+      <form method="POST" action="" enctype="multipart/form-data" >
         <div style="margin-left:11vw;margin-right:11vw;">
         <div class="form-group">
           <div>
@@ -24,46 +26,76 @@
             <h5 for="">Email:
               <input type="text" class="form-control" name="email" id="email" value="<%= currentUser.email %>" disabled>
             </h5>
-            <% if(currentUser.token == null) {%>
-            <%} else{ %> <a href="/activateEmail">GỬI XÁC THỰC</a>
-            <% } %>
           </div>
           <div>
 
-            <% if(currentUser.CMND && currentUser.currentUser == "0"){ %>
+            <% if(currentUser.CMND && currentUser.codeCMND == "0"){ %>
             <div>
               <h5 for="">CMND:
-                <input type="text" name="email" id="email" value="<%= currentUser.CMND %>" disabled></h5>
+                <input type="text" name="CMND" id="CMND" value="<%= currentUser.CMND %>" disabled></h5>
             </div>
-
-            <% }else{ %>
-            <fieldset>
-              <!-- <legend>CMND:</legend>  -->
-              <% if(currentUser.CMND && currentUser.pictureCMND1 && currentUser.pictureCMND1){ %>
+            <% }else { %>
+              <% if(currentUser.CMND && currentUser.pictureCMND && currentUser.codeCMND == "1" ){ %>
               <a href="/activateCMND">GỬI XÁC THỰC</a>
               <% } %>
+              <% if(currentUser.CMND && currentUser.pictureCMND && currentUser.codeCMND == "2" ){ %>
+                <p>CMND không hợp lệ mời cập nh</p>
+                <% } %>
               <div>
                 <h5 for="">CMND:
-                  <input type="text" class="form-control" name="email" id="email" value="<%= currentUser.CMND %>"></h5>
+                  <input type="text" class="form-control" name="CMND" id="CMND" value="<%= currentUser.CMND %>"></h5>
               </div>
               <div>
-                <h5 for="">Ảnh mặt trước:
-                  <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND1 %>"></h5>
-              </div>
-              <div>
-                <h5 for="">Ảnh mặt sau:
-                  <input type="file" name="email" id="email" value="<%= currentUser.pictureCMND2 %>"></h5>
+                <h5 for="">Ảnh:
+                  <div>
+                    <div class="avatar-wrapper">
+                      <img class="profile-pic" src="" />
+                      <div class="upload-button">
+                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                      </div>
+                      <input class="file-upload" name= "CMNDimg" type="file"/>
+                    </div>
+                  </div>
               </div>
             </fieldset>
             <% } %>
 
           </div>
-          <hr>
           <button style="margin-left:20vw;margin-right:11vw;" type="submit" class="btn btn-primary mb-2">Cập Nhật</button>
           </hr>
         </div>
+
+
+
       </form>
     </div>
   </div>
 </div>
+
+
+<script>
+  $(document).ready(function() {
+	
+  var readURL = function(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+              console.log(e.target.result);
+              $('.profile-pic').attr('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+ 
+  $(".file-upload").on('change', function(){
+      readURL(this);
+  });
+  
+  $(".upload-button").on('click', function() {
+     $(".file-upload").click();
+  });
+});
+</script>
+
 <%- include ('templatefooter.ejs') -%>

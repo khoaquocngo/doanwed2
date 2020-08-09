@@ -9,7 +9,10 @@ class Save extends Model {
         return Save.findAll({
               where:{
                 userId,
-              }
+              },
+              order: [
+                ['id', 'DESC'],
+            ],
           })
       }
     static async findByCode(code) {
@@ -34,7 +37,7 @@ Save.init({
     //Tiền lại nhận được
     interest: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
+        defaultValue: 0
     },
     //Kỳ hạn 3 tháng = 1 , 6 tháng = 2, 1 năm = 3
     term:
@@ -42,7 +45,11 @@ Save.init({
         type: Sequelize.FLOAT,
         allowNull: false,
     },
-    //Lãi suất - Không kì hạn 1.5% , 3 tháng 3% , 6 tháng 6%, 1 năm 9%
+    nameTerm:
+    {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
     interestRate:
     {
         type: Sequelize.FLOAT,

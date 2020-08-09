@@ -13,7 +13,6 @@
     <div class="col-md-7">
         
         <div>
-            
             <h5>Số tài khoản tiết kiệm: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
                 value="<%= s.code %>" disabled>  </h5>
             <hr>
@@ -26,7 +25,7 @@
               </div>
             <hr>
             <h5>Kỳ hạn gửi:<input type="text" class="form-control" id="accountNumber" name="accountNumber"
-                value="<% if (s.term === 0 ) { %> <%= "Không kỳ hạn" %> <% } else%><% if (s.term === 1 ){ %> <%= "Kỳ hạn 3 tháng" %> <% }else %><% if (s.term === 2 ) { %> <%= "Kỳ hạn 6 tháng" %> <% } %><% if (s.term === 2 ){ %> <%= "Kỳ hạn 9 tháng" %> <% }else %><% if (s.term === 2 ) { %> <%= "A" %> <% } %> %><% if (s.term === 3 ){ %> <%= "Kỳ hạn 1 năm" %> <% } %><% if (s.term === 2 ) { %> <%= "A" %> <% } %>" disabled>  </h5>
+                value="<%= s.nameTerm %>" disabled>  </h5>
             <% if (s.finalize == false) { %>
             <hr>
                 <h5>Lãi suất hiện tại:<input type="text" class="form-control" id="accountNumber" name="accountNumber" value="<%= s.interest %>" disabled>  </h5>

@@ -5,7 +5,7 @@
 <%- include ('templateright.ejs') -%>
 <br />
 <hr />
-<h1 style="text-align: center;">Gửi tiết kiệm không có kỳ hạn</h1>
+<h1 style="text-align: center;">Gửi tiết kiệm</h1>
 
 <h5>Tên chủ tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
     value="<%= currentUser.displayName %>" disabled>  </h5>
@@ -14,16 +14,31 @@
 <h5>Số dư hiện tại: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
     value="<%= bank.defaultMoney %> VNĐ" disabled>  </h5>
     
-
+<hr>
 <br />
-<hr />
+
 <div class="row">
     <div class="col-md-7">
-        <div class="container">
-            <p><%= war %></p>
+        <div class="container"> 
             <form action="" method="post">
-                <input class="form-control" type="number" name="money" id="money" placeholder="Số tiền gửi">
+                <label for=""> <h5>Kỳ hạn: </h5></label>
+                <select class="form-control" name="term">
+                    <% interest.forEach(function(i){ %>
+                    <option value="<%= i.id %>"><%= i.Name %></option>
+                    <% }); %>
+                </select>
                 <br>
+                
+                <h5>Số tiền gửi: </h5>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="money" name="money" placeholder="Số tiền gửi">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">VNĐ</span>
+                    </div>
+                  </div>
+                  <br/>
+                  <hr/>
+                  <!-- <button type="submit" class="btn btn-primary mb-2"> Gửi </button> -->
                 <input class="form-control" type="submit" value="Gửi">
             </form>
         </div>
