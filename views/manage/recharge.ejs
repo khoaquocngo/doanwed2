@@ -12,6 +12,30 @@
         <input type="text" placeholder="Email | Số tài khoản | CMND">
         <input type="submit" value="Tìm Kiếm">
         </form>
-    </div>
+
+
+        <table class="table table-striped table-dark">
+            <thead>
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">Họ và Tên</th>
+                <th scope="col">Số tài khoản</th>
+                <th scope="col">CMND</th>
+                <th scope="col">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% banks.forEach(function(bank){ %>
+              <tr>
+                <th scope="col"><%= bank.user.email %> </th>
+                <th scope="col"><%= bank.user.displayName %></th>
+                <th scope="col"><%= bank.accountNumber %></th>
+                <th scope="col"><%= bank.user.CMND %></th>
+                <th><a role="button" href="/card/<%= bank.accountNumber %>">Nạp tiền</a></th>  
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
 </body>
 </html>

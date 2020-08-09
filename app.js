@@ -34,6 +34,7 @@ app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));
 app.use('/accountSave',require('./routes/accountSave'));
 app.use('/save',require('./routes/Save'));
+app.use('/card',require('./routes/manage/card'));
 app.use('/forgotpassword',require('./routes/forgotpassword'));
 app.use('/resetPassword',require('./routes/resetPassword'));
 app.use('/guestAccount',require('./routes/manage/guestAccount')); 

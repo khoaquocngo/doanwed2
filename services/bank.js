@@ -29,6 +29,16 @@ class Bank extends Model {
     })
   }
 
+  static async findAllUser() {
+    return Bank.findAll({
+      include: [
+        {
+          model: User
+        }
+      ],
+    })
+  }
+
 
 }
 Bank.init({
