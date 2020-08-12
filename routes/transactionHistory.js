@@ -3,6 +3,8 @@ const router = new Router();
 const Transaction = require('../services/transaction');
 const asyncHandler = require('express-async-handler')
 
+router.use(require('../middlewares/requireLoggedIn'));
+
 
 router.get('/', asyncHandler (async function (req, res) {
     const History = await Transaction.findAllHistory(req.currentUser.id);

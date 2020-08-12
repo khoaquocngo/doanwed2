@@ -1,7 +1,9 @@
 const {Router} = require('express');
 const router = new Router();
 const User = require('../services/user');
-const asyncHandler = require('express-async-handler')
+const asyncHandler = require('express-async-handler');
+router.use(require('../middlewares/requireLoggedIn'));
+
 
 router.get('/', asyncHandler (async function (req, res) {
     

@@ -4,6 +4,7 @@ const crypto = require('crypto');
 const Email = require('../services/email');
 const User = require('../services/user');
 const router = new Router();
+router.use(require('../middlewares/requirelogged'));
 
 router.get('/', function(req,res){
     

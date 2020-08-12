@@ -2,6 +2,7 @@ const {Router} = require('express');
 const router = new Router();
 const asyncHandler = require('express-async-handler')
 const User = require('../services/user');
+router.use(require('../middlewares/requirelogged'));
 
 router.get('/',function (req,res){
     

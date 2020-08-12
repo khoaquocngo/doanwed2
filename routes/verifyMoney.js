@@ -4,6 +4,9 @@ const asyncHandler = require('express-async-handler')
 const Bank = require('../services/bank');
 const Fee = require('../services/fee');
 const Transaction = require('../services/transaction');
+const Email = require('../services/email');
+const User = require('../services/user');
+router.use(require('../middlewares/requireLoggedIn'));
 
 
 router.get('/', asyncHandler(async function (req, res) {
@@ -37,16 +40,30 @@ router.post('/', asyncHandler(async function (req, res) {
         
         return res.redirect("/notification");
     }
+    var today = new Date();
+    var time = today.getDate() +  "-" + today.getMonth() + "-" + today.getYear() + "   " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     if (transaction.charge == "1") {
         accuontSender.defaultMoney = Number(accuontSender.defaultMoney - fee.fee);
+        await Email.send( req.currentUser.email,'Transfers',`SD TK ${accuontSender.accountNumber} -${transaction.Money}VNĐ vào lúc  ${time} có nội dung: "${transaction.content}" với phí chuyển tiền là: ${fee.fee}VNĐ  `) 
+        await Email.send( accountReceiver.user.email,'Transfers',`SD TK ${accuontSender.accountNumber} +${transaction.Money}VNĐ vào lúc  ${time} với nội dung: "${transaction.content}"  `) 
     } else {
         accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney - fee.fee);
+        await Email.send( req.currentUser.email,'Transfers',`SD TK ${accuontSender.accountNumber} -${transaction.Money}VNĐ vào lúcm ${time} có nội dung: "${transaction.content}"  `) 
+        await Email.send( accountReceiver.user.email,'Transfers',`SD TK ${accuontSender.accountNumber} +${transaction.Money}VNĐ vào lúc  ${time} với nội dung: "${transaction.content}" với phí chuyển tiền là: ${fee.fee}VNĐ `) 
     }
     accuontSender.save();
     accountReceiver.save();
     transaction.save();
     req.session.status = "Giao dịch thành công";
     
+    console.log(accountReceiver.user.email);
+   
+
+ 
+
+
+
+
     return res.redirect("/notification");
 }));
 

@@ -4,8 +4,9 @@ const Bank = require('../services/bank')
 const Transaction = require('../services/transaction');
 const Email = require('../services/email');
 const crypto = require('crypto');
-
 const asyncHandler = require('express-async-handler')
+
+router.use(require('../middlewares/requireLoggedIn'));
 
 
 router.get('/', asyncHandler (async function (req, res) {

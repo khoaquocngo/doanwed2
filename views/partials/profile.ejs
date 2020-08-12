@@ -49,11 +49,11 @@
                 <h5 for="">Ảnh:
                   <div>
                     <div class="avatar-wrapper">
-                      <img class="profile-pic" src="" />
+                      <img class="profile-pic" src="<%= currentUser.pictureCMND%>" />
                       <div class="upload-button">
                         <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
                       </div>
-                      <input class="file-upload" name= "CMNDimg" type="file"/>
+                      <input class="file-upload" id="CMNDimg"  name= "CMNDimg" type="file"/>
                     </div>
                   </div>
               </div>
@@ -61,7 +61,7 @@
             <% } %>
 
           </div>
-          <button style="margin-left:20vw;margin-right:11vw;" type="submit" class="btn btn-primary mb-2">Cập Nhật</button>
+          <button style="margin-left:20vw;margin-right:11vw;" type="submit" id = "submit" class="btn btn-primary mb-2">Cập Nhật</button>
           </hr>
         </div>
 
@@ -74,15 +74,18 @@
 
 
 <script>
+  var base64;
   $(document).ready(function() {
-	
   var readURL = function(input) {
       if (input.files && input.files[0]) {
+        console.log(input.files);
           var reader = new FileReader();
 
-          reader.onload = function (e) {
-              console.log(e.target.result);
+          reader.onload = async function (e) {
+              base64 = e.target.result;
               $('.profile-pic').attr('src', e.target.result);
+              console.log(e.target.files);
+
           }
           reader.readAsDataURL(input.files[0]);
       }
@@ -94,6 +97,20 @@
   
   $(".upload-button").on('click', function() {
      $(".file-upload").click();
+  });
+  $("#submit").on('click',function(){
+ 
+    $.ajax({
+						type: 'POST',
+						data: JSON.stringify(base64),
+				        contentType: 'application/json',
+                        url: 'http://localhost:5000/profile',						
+                        success: function(base64) {
+                            console.log('success');
+                            console.log(JSON.stringify(base64));
+                        }
+                    });
+
   });
 });
 </script>

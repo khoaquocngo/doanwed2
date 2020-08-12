@@ -4,6 +4,7 @@ const asyncHandler = require('express-async-handler')
 const crypto = require('crypto');
 const Email = require('../services/email');
 const router = new Router();
+router.use(require('../middlewares/requirelogged'));
 
 router.get('/', function getLogin(req,res ){
     

@@ -15,7 +15,7 @@ router.get('/', asyncHandler (async function (req, res) {
 }));
 router.post('/', asyncHandler (async function (req, res) {
     const bank = await Bank.findBankbyaccountNumber(req.session.card);
-    bank.defaultMoney = bank.defaultMoney + req.body.money;
+    bank.defaultMoney = bank.defaultMoney + Number(req.body.money);
     bank.save();
     if(req.session.status != null) req.session.status = null;
     req.session.status = "Nạp tiền thành công";

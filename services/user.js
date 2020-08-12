@@ -27,10 +27,28 @@ class User extends Model {
       }
     )
   }
+  static async findGuest() {
+    return User.findAll(
+      {
+        where: {
+          decentralize: 1
+        },
+      }
+    )
+  }
   static async findUserByEmail(email) {
     return User.findOne({
       where: {
         email,
+      }
+    })
+  }
+
+  static async updateUserProfile(id, displayName, CMND,pictureCMND) {
+    return User.update(
+      {displayName: displayName,CMND: CMND,pictureCMND: pictureCMND},
+      {where: {
+        id: id,
       }
     })
   }

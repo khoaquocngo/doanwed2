@@ -1,9 +1,10 @@
-const User = require('../services/user')
-const {Router} = require('express')
-const asyncHandler = require('express-async-handler')
-
+const User = require('../services/user');
+const {Router} = require('express');
+const asyncHandler = require('express-async-handler');
 
 const router = new Router();
+
+
 
 router.get('/',function getLogin(req,res){
    
