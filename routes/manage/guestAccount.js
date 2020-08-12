@@ -2,6 +2,8 @@ const {Router} = require('express');
 const router = new Router();
 const asyncHandler = require('express-async-handler');
 const User = require('../../services/user');
+router.use(require('../../middlewares/requireLoggedIn'));
+router.use(require('../../middlewares/adminlogin'));
 
 router.get('/', asyncHandler (async function (req, res) {
     const users = await User.findGuest();

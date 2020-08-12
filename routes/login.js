@@ -3,6 +3,7 @@ const {Router} = require('express')
 const asyncHandler = require('express-async-handler')
 const crypto = require('crypto');
 const Email = require('../services/email');
+const { resolveSoa } = require('dns');
 const router = new Router();
 router.use(require('../middlewares/requirelogged'));
 
@@ -20,7 +21,7 @@ router.post('/',asyncHandler(async function postLogin(req,res){
         req.session.userId = user.id;
         if(user.decentralize === 2 ||user.decentralize === 0) {
             
-            return res.redirect('/adminAccount');
+            return res.redirect('/guestAccount');
         }
         if(user.token) {
             
@@ -31,21 +32,15 @@ router.post('/',asyncHandler(async function postLogin(req,res){
             await Email.send(user.email,'Mã đăng nhập là: ',`${user.code}`)
             return res.redirect('verification');
         }
-    } 
+    }
+    else{
+        return res.redirect("/warning");
+    }
+
         
     return res.redirect('/login');
 }));
 
-router.get('/:id/:token',asyncHandler(async function(req,res){
-    const {id,token} = req.params;
-    const user = await User.findUserById(id);
-    if(user && user.token === token){
-        user.token = null;
-        user.save();
-        req.session.userId = user.id;
-    }
-    
-    res.redirect('/home');
-}));
+
 
 module.exports = router;

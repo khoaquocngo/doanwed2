@@ -8,6 +8,8 @@ const Email = require('../services/email');
 const User = require('../services/user');
 router.use(require('../middlewares/requireLoggedIn'));
 
+var today = new Date();
+var time = today.getDate() +  "-" + today.getMonth() + "-" + today.getYear() + "   " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 router.get('/', asyncHandler(async function (req, res) {
     const transaction = await Transaction.findTransactionByCode(req.session.transaction.code);
@@ -26,22 +28,21 @@ router.post('/', asyncHandler(async function (req, res) {
     const accuontSender = await Bank.findBankbyaccountNumber(transaction.accuontSender);
     const accountReceiver = await Bank.findBankbyaccountNumber(transaction.accountReceiver);
     
-    if (accuontSender.defaultMoney >= transaction.Money && transaction.code == code) {
+    if (accuontSender.defaultMoney     >= (transaction.Money + fee.fee) && transaction.code == code) {
         accuontSender.defaultMoney = Number(accuontSender.defaultMoney - transaction.Money);
         accountReceiver.defaultMoney = Number(accountReceiver.defaultMoney + transaction.Money);
-        var today = new Date();
-        transaction.date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + " (" + today.getDate() + "/" + Number(today.getMonth() + 1 )  + "/" + today.getFullYear()  +")";
+      
+        transaction.date = Date.now();
         transaction.status = "Giao dịch thành công";
     } else {
-        if(accuontSender.defaultMoney < transaction.Money)
+        if(accuontSender.defaultMoney < (transaction.Money +  + fee.fee))
         req.session.status = "Giao dịch thất bại số dư không đủ";
         if(transaction.code != code)
         req.session.status = "Giao dịch thất bại mã xác thực không đúng";
         
         return res.redirect("/notification");
     }
-    var today = new Date();
-    var time = today.getDate() +  "-" + today.getMonth() + "-" + today.getYear() + "   " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+   
     if (transaction.charge == "1") {
         accuontSender.defaultMoney = Number(accuontSender.defaultMoney - fee.fee);
         await Email.send( req.currentUser.email,'Transfers',`SD TK ${accuontSender.accountNumber} -${transaction.Money}VNĐ vào lúc  ${time} có nội dung: "${transaction.content}" với phí chuyển tiền là: ${fee.fee}VNĐ  `) 

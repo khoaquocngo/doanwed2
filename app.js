@@ -29,6 +29,8 @@ app.use('/transfers',require('./routes/transfers'));
 app.use('/notification',require('./routes/notification'));
 app.use('/verifyMoney',require('./routes/verifyMoney'));
 app.use('/profile',require('./routes/profile'));
+app.use('/warning',require('./routes/warning'));
+app.use('/historyRecharge',require('./routes/manage/historyRecharge'));
 app.use(require('./middlewares/auth'));
 app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));

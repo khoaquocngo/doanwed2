@@ -3,6 +3,7 @@ const User = require('./user');
 const db = require('./db');
 
 const Model = Sequelize.Model;
+const sevenDaysAgo = new Date(new Date().setDate(new Date().getDate() - 7));
 class Transaction extends Model {
     static async findTransactionByCode(code){
         return Transaction.findOne({
@@ -15,6 +16,17 @@ class Transaction extends Model {
     {
         return Transaction.findAll({where: {
             userId
+        }})
+    }
+
+    static async findAllInDay(userId)
+    {
+        return Transaction.findAll({
+            where: {
+                date:{
+                    $gt: sevenDaysAgo,
+                    $lt: new Date(),
+            }
         }})
     }
 
@@ -43,7 +55,7 @@ Transaction.init({
         allowNull: false,
     },
     date: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
     },
     content:
     {

@@ -3,6 +3,10 @@ const router = new Router();
 const User = require('../../services/user');
 const asyncHandler = require('express-async-handler');
 
+router.use(require('../../middlewares/requireLoggedIn'));
+router.use(require('../../middlewares/bosslogin'));
+
+
 
 router.get('/', asyncHandler(async function (req, res) {
     const users = await User.findManage();

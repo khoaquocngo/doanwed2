@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = new Router();
-const Bank = require('../../services/bank');
 const asyncHandler = require('express-async-handler');
+const Recharge = require('../../services/recharge');
 
 
 
@@ -9,8 +9,9 @@ router.use(require('../../middlewares/requireLoggedIn'));
 router.use(require('../../middlewares/adminlogin'));
 
 router.get('/', asyncHandler (async function (req, res) {
-   const banks = await Bank.findAllUser();
-   res.render('manage/recharge',{banks});
+    const recharge = await Recharge.findAll();
+
+    res.render('manage/historyRecharge',{recharge});
 }));
 
 module.exports = router;
