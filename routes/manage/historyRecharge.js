@@ -14,4 +14,35 @@ router.get('/', asyncHandler (async function (req, res) {
     res.render('manage/historyRecharge',{recharge});
 }));
 
+router.post('/', asyncHandler (async function (req, res) {
+    var recharge;
+    const temp = req.body.temp;
+    if(!temp)
+    {
+    return res.redirect('/historyRecharge');
+    }
+
+    recharge = await Recharge.findCode(temp);
+
+    if(recharge.length != 0)
+   {
+    console.log("b");
+
+       return  res.render('manage/historyRecharge',{recharge});
+
+   }
+
+    recharge = await Recharge.findAccuontRecharge(temp);
+
+
+    if(recharge.length != 0)
+    {
+        console.log("a");
+       return res.render('manage/historyRecharge',{recharge});
+    }
+
+    return res.render('manage/historyRecharge',{recharge});
+}));
+
+
 module.exports = router;

@@ -13,20 +13,22 @@
         <thead>
           <tr>
             <th scope="col">Email</th>
+            <th scope="col">Tài khoản mặc định</th>
             <th scope="col">Họ và Tên</th>
             <th scope="col">Thao tác</th>
           </tr>
         </thead>
         <tbody>
-            <% users.forEach(function(user){ %>
+            <% banks.forEach(function(bank){ %>
           <tr>
-            <th scope="col"><%= user.email %> </th>
-            <th scope="col"><%= user.displayName %></th>
+            <th scope="col"><%= bank.user.email %> </th>
+            <th scope="col"><%= bank.accountNumber %> </th>
+            <th scope="col"><%= bank.user.displayName %></th>
             <th scope="col">
-            <% if(user.block === false){ %> 
-            <a href="guestAccount/<%=user.email%>/block">Khóa account</a>
+            <% if(bank.user.block === false){ %> 
+            <a href="guestAccount/<%=bank.user.email%>/block">Khóa account</a>
             <% } else { %>
-            <a href="guestAccount/<%=user.email%>/unblock">Mở account</a>
+            <a href="guestAccount/<%=bank.user.email%>/unblock">Mở account</a>
             <% }%>
             </th>
           </tr>

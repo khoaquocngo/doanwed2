@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt')
 const Sequelize = require('sequelize')
 const User = require('./user')
-const db = require('./db')
+const db = require('./db');
 
 const Model = Sequelize.Model;
 class Bank extends Model {
@@ -28,6 +28,18 @@ class Bank extends Model {
       }
     })
   }
+  static async findAccount(accountNumber) {
+    return Bank.findAll({
+      include: [
+        {
+          model: User
+        }
+      ],
+      where: {
+        accountNumber,
+      }
+    })
+  }
 
   static async findAllUser() {
     return Bank.findAll({
@@ -35,6 +47,33 @@ class Bank extends Model {
         {
           model: User
         }
+      ],
+    })
+  }
+  static async findEmail(temp) {
+    return Bank.findAll({
+      include: [
+        {
+          model: User,
+          where: {
+            email: temp
+          }  
+        
+      }
+      ],
+    })
+  }
+
+  static async findCmnd(temp) {
+    return Bank.findAll({
+      include: [
+        {
+          model: User,
+          where: {
+            CMND: temp
+          }  
+        
+      }
       ],
     })
   }

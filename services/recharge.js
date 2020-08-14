@@ -4,6 +4,22 @@ const db = require('./db');
 
 const Model = Sequelize.Model;
 class Recharge extends Model {
+    static async findCode(temp) {
+        return Recharge.findAll({
+              where:{
+                code : temp
+              }
+          })
+      }
+      static async findAccuontRecharge(temp) {
+        return Recharge.findAll({
+              where:{
+                accuontRecharge : temp
+              }
+          })
+      }
+
+
    
 }
 Recharge.init({
