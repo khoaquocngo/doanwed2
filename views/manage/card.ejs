@@ -1,17 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
+
+
+
+<%- include ('../partials/templateheader.ejs') -%>
+<%- include ('../partials/templateleft.ejs') -%>
+<br />
+
+<%- include ('../partials/templateright.ejs') -%>
+<br />
+<hr />
+<h1 style="text-align: center;">Nạp Tiền Tài Khoản</h1>
+<hr>
 <body>
     <li>Tên: <%= bank.user.displayName%></li>
     <li>Tài khoản mặc định: <%= bank.accountNumber %></li>
+    <br>
+    <br>
     <form action="" method="post">
-        <input type="text"  name="content"  placeholder="Nội dung">
-        <input type="number" name="money" id="" placeholder="Tiền cần nạp">
-        <input type="submit" value="Nạp tiền">
+
+      <div class="form-group acttc">
+                        <textarea class="form-control" name="content" id="content" rows="4"
+                            placeholder="Nội dung" ></textarea> 
+                    </div>
+        <br>
+        <input type="number" name="money" id="" placeholder="Tiền cần nạp" class= "form-control acttc">
+        <br>
+        <button style="margin-left:30vw;margin-right:11vw;" type="submit" id = "submit" class="btn btn-primary mb-2">Nạp Tiền</button>
+
     </form>
 </body>
-</html>
+   
+</div>
+
+<%- include ('../partials/templatefooter.ejs') -%> 
+<style>
+    .acttc
+    {
+      width: 50vw;
+      margin-left: auto;
+      margin-right: auto;
+  
+    }
+      
+    
+  </style>
