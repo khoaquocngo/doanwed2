@@ -1,64 +1,22 @@
-
-
-
-
-
-<%- include ('../partials/templateheader.ejs') -%>
-<%- include ('../partials/templateleft.ejs') -%>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
 <br />
 
-<%- include ('../partials/templateright.ejs') -%>
+<%- include ('templateright.ejs') -%>
 <br />
 <hr />
 
 <body>
-
-<<<<<<< HEAD
-    <form action="" method="post">
-        <input type="text"  name = "temp" placeholder="Số Hóa Đơn | Số tài khoản   ">
-        <input type="submit" value="Tìm Kiếm">
-        </form>
-
-
-    <div class="container">
-    <h3>LỊCH SỬ NẠP TIỀN CỦA KHÁCH HÀNG</h3>
-    <table class="table table-striped table-dark">
-        <thead>
-          <tr>
-            <th scope="col">Mã hóa đơn</th>
-            <th scope="col">Số tài khoản</th>
-            <th scope="col">Họ và tên</th>
-            <th scope="col">Số tiền</th>
-            <th scope="col">Ngày giao dịch</th>
-            <th scope="col">Nội dung</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% recharge.forEach(function(r){ %>
-          <tr>
-            <th scope="col"><%= r.code %></th>
-            <th scope="col"><%= r.accuontRecharge %></th>
-            <th scope="col"><%= r.nameRecharge %></th>
-            <th scope="col"><%= r.Money %></th>
-            <th scope="col"><%= r.date %></th>
-            <th scope="col"><%= r.content %></th>
-          </tr>
-          <% }); %>
-        </tbody>
-      </table>
-    </div>
-    </div>
-=======
   <form action="" method="post">
-      <input type="text" placeholder="Số Hóa Đơn | Số tài khoản   ">
-      <input type="submit" value="Tìm Kiếm">
-      </form>
-
-
-  <div class="container">
+    <input type="text" placeholder="Số Hóa Đơn | Số tài khoản" class="form-control acttc">
+    <input type="submit" value="Tìm Kiếm" class="form-control" style="float: left; width: 10vw; margin-left: 2vw;">
+  </form>
+  <div class="container" style="clear: both;">
+    </br>
+    </br>
     <h1 style="text-align: center;">Lịch Sử Nạp Tiền Của Khách Hàng</h1>
     <br>
-  <table class="table table-striped table-dark">
+    <table class="table table-striped table-dark">
       <thead>
         <tr>
           <th scope="col">Mã hóa đơn</th>
@@ -70,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-          <% recharge.forEach(function(r){ %>
+        <% recharge.forEach(function(r){ %>
         <tr>
           <th scope="col"><%= r.code %></th>
           <th scope="col"><%= r.accuontRecharge %></th>
@@ -84,9 +42,17 @@
     </table>
   </div>
   </div>
->>>>>>> 33e4636ee0a043dcddc13bef89625e4fa6338728
 </body>
-   
+
 </div>
 
-<%- include ('../partials/templatefooter.ejs') -%>
+<%- include ('templatefooter.ejs') -%>
+
+<style>
+  .acttc {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+  }
+</style>

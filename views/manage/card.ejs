@@ -1,19 +1,19 @@
-
-
-
-
-<%- include ('../partials/templateheader.ejs') -%>
-<%- include ('../partials/templateleft.ejs') -%>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
 <br />
 
-<%- include ('../partials/templateright.ejs') -%>
+<%- include ('templateright.ejs') -%>
 <br />
 <hr />
 <h1 style="text-align: center;">Nạp Tiền Tài Khoản</h1>
 <hr>
 <body>
-    <li>Tên: <%= bank.user.displayName%></li>
-    <li>Tài khoản mặc định: <%= bank.accountNumber %></li>
+    <p style="float: left;">Tên tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+      value="<%= bank.user.displayName %>"style="width: 20vw; float: right; margin-left: 5vw; "> </p>
+      <br/>
+    </br>
+    <p style="float: left; clear: both;">Tài khoản mặc định: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
+      value="<%= bank.accountNumber %>" style="width: 20vw; float: right; margin-left: 2vw; "> </p>
     <br>
     <br>
     <form action="" method="post">
@@ -32,7 +32,7 @@
    
 </div>
 
-<%- include ('../partials/templatefooter.ejs') -%> 
+<%- include ('templatefooter.ejs') -%> 
 <style>
     .acttc
     {

@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
+<br />
+
+<%- include ('templateright.ejs') -%>
+<br />
+<hr />
+<h1 style="text-align: center;">Quản lý chi phí chuyển khoản</h1>
+<hr>
 <body>
-    <h3>Quản lý chi phí chuyển khoản</h3>
     <form action="" method="post">
     
         <% fees.forEach(function(fee){ %>
@@ -15,7 +16,19 @@
             <label for="">Số tiền</label>
             <input type="number" name="fee" value="<%= fee.fee %>">  
         <% }); %>
-        <input type="submit" value="Thay đổi">
+        <input type="submit" value="Thay đổi" class= "form-control acttc">
     </form>
 </body>
-</html>
+   
+</div>
+
+<%- include ('templatefooter.ejs') -%> 
+<style>
+    .acttc
+    {
+      width: 20vw;
+      margin-left: auto;
+      margin-right: auto;
+  
+    }
+  </style>

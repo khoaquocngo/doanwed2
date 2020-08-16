@@ -1,48 +1,12 @@
-
-
-
-
-<%- include ('../partials/templateheader.ejs') -%>
-<%- include ('../partials/templateleft.ejs') -%>
+<%- include ('templateheader.ejs') -%>
+<%- include ('templateleft.ejs') -%>
 <br />
 
-<%- include ('../partials/templateright.ejs') -%>
+<%- include ('templateright.ejs') -%>
 <br />
 <hr />
 
 <body>
-<<<<<<< HEAD
-    <div class="container">
-        <form action="" method="post">
-        <input type="text" name="temp" placeholder="Email | Số tài khoản | CMND">
-        <input type="submit" value="Tìm Kiếm">
-        </form>
-
-
-        <table class="table table-striped table-dark">
-            <thead>
-              <tr>
-                <th scope="col">Email</th>
-                <th scope="col">Họ và Tên</th>
-                <th scope="col">Số tài khoản</th>
-                <th scope="col">CMND</th>
-                <th scope="col">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody>
-                <% banks.forEach(function(bank){ %>
-              <tr>
-                <th scope="col"><%= bank.user.email %> </th>
-                <th scope="col"><%= bank.user.displayName %></th>
-                <th scope="col"><%= bank.accountNumber %></th>
-                <th scope="col"><%= bank.user.CMND %></th>
-                <th><a role="button" href="/card/<%= bank.accountNumber %>">Nạp tiền</a></th>  
-              </tr>
-              <% }); %>
-            </tbody>
-          </table>
-        </div>
-=======
   <h1 style="text-align: center;">Tìm Kiếm Tài Khoản</h1>
   <hr>
   <div class="container">
@@ -77,12 +41,11 @@
           </tbody>
         </table>
       </div>
->>>>>>> 33e4636ee0a043dcddc13bef89625e4fa6338728
 </body>
    
 </div>
 
-<%- include ('../partials/templatefooter.ejs') -%> 
+<%- include ('templatefooter.ejs') -%> 
 
 <style>
   .actt

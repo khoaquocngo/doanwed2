@@ -21,10 +21,9 @@ router.post('/',asyncHandler(async function postLogin(req,res){
         req.session.userId = user.id;
         if(user.decentralize === 2 ||user.decentralize === 0) {
             
-            return res.redirect('/guestAccount');
+            return res.redirect('/adminAccount');
         }
         if(user.token) {
-            
             return res.redirect('/home');
         } else {
             user.code = crypto.randomBytes(3).toString('hex').toUpperCase();
