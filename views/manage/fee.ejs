@@ -5,7 +5,7 @@
 <%- include ('templateright.ejs') -%>
 <br />
 <hr />
-<h1 style="text-align: center;">Quản lý chi phí chuyển khoản</h1>
+<h1 style="text-align: center;">Quản Lý Chi Phí Chuyển Khoản</h1>
 <hr>
 <body>
     <form action="" method="post">
@@ -13,10 +13,16 @@
         <% fees.forEach(function(fee){ %>
             <label for="">Tên phí</label>
             <input type="text"name="name" value="<%= fee.Name %>">
+            <br>
+            <hr>
             <label for="">Số tiền</label>
             <input type="number" name="fee" value="<%= fee.fee %>">  
+            <br>
+            <hr>
         <% }); %>
-        <input type="submit" value="Thay đổi" class= "form-control acttc">
+       
+      
+        <button style="margin-left:25vw;margin-right:11vw;" type="submit" id = "submit" class= "form-control acttc">Thay Đổi</button>
     </form>
 </body>
    

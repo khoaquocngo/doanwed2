@@ -27,6 +27,7 @@ app.use('/transactionHistory',require('./routes/transactionHistory'));
 app.use('/home',require('./routes/index'));
 app.use('/transfers',require('./routes/transfers'));
 app.use('/notification',require('./routes/notification'));
+
 app.use('/verifyMoney',require('./routes/verifyMoney'));
 app.use('/profile',require('./routes/profile'));
 app.use('/warning',require('./routes/warning'));
