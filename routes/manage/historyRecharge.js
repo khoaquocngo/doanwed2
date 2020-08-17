@@ -26,7 +26,6 @@ router.post('/', asyncHandler (async function (req, res) {
 
     if(recharge.length != 0)
    {
-    console.log("b");
 
        return  res.render('manage/historyRecharge',{recharge});
 
@@ -37,7 +36,6 @@ router.post('/', asyncHandler (async function (req, res) {
 
     if(recharge.length != 0)
     {
-        console.log("a");
        return res.render('manage/historyRecharge',{recharge});
     }
 
