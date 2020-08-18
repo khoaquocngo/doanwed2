@@ -5,11 +5,11 @@ const Bank = require('../services/bank');
 const Fee = require('../services/fee');
 const Transaction = require('../services/transaction');
 const Email = require('../services/email');
-const User = require('../services/user');
 router.use(require('../middlewares/requireLoggedIn'));
 
 var today = new Date();
 var time = today.getDate() +  "-" + today.getMonth() + "-" + today.getYear() + "   " +  today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+router.use(require('../middlewares/guestLogin'));
 
 router.get('/', asyncHandler(async function (req, res) {
     const transaction = await Transaction.findTransactionByCode(req.session.transaction.code);

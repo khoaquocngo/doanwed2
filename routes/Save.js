@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const Email = require('../services/email');
 
 router.use(require('../middlewares/requireLoggedIn'));
+router.use(require('../middlewares/guestLogin'));
 
 
 var today = new Date();

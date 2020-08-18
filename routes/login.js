@@ -3,16 +3,17 @@ const {Router} = require('express')
 const asyncHandler = require('express-async-handler')
 const crypto = require('crypto');
 const Email = require('../services/email');
-const { resolveSoa } = require('dns');
 const router = new Router();
+
 router.use(require('../middlewares/requirelogged'));
 
-router.get('/', function getLogin(req,res ){
+router.get('/', function getLogin(req,res ) {
     
     res.render('pages/login')
 });
 
-router.post('/',asyncHandler(async function postLogin(req,res){
+router.post('/',asyncHandler(async function postLogin(req,res) {
+    
     const user = await User.findUserByEmail(req.body.email);    
     if(!user || !User.verifyPassword(req.body.password, user.password)) {
         return res.redirect('/login');
@@ -23,6 +24,7 @@ router.post('/',asyncHandler(async function postLogin(req,res){
             
             return res.redirect('/adminAccount');
         }
+        
         if(user.token) {
             return res.redirect('/home');
         } else {
@@ -32,12 +34,13 @@ router.post('/',asyncHandler(async function postLogin(req,res){
             return res.redirect('verification');
         }
     }
-    else{
+    else {
         return res.redirect("/warning");
     }
 
         
     return res.redirect('/login');
+    
 }));
 
 

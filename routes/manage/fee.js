@@ -10,8 +10,8 @@ router.use(require('../../middlewares/adminlogin'));
 
 router.get('/', asyncHandler (async function (req, res) {
     const fees = await Fee.findAll();
-
     res.render('manage/fee',{fees});
+    
 }));
 
 

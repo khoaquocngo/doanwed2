@@ -5,8 +5,8 @@ const {body,validationResult} = require('express-validator');
 const crypto = require('crypto');
 const asyncHandler = require('express-async-handler');
 const Email = require('../services/email');
-
 const router = new Router();
+
 router.use(require('../middlewares/requirelogged'));
 
 router.get('/',function isRegister(req,res){

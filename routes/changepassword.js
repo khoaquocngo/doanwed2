@@ -2,12 +2,13 @@ const {Router} = require('express');
 const router = new Router();
 const User = require('../services/user');
 const asyncHandler = require('express-async-handler');
-router.use(require('../middlewares/requireLoggedIn'));
 
+router.use(require('../middlewares/requireLoggedIn'));
 
 router.get('/', asyncHandler (async function (req, res) {
     
     res.render('partials/changepassword');
+
 }));
 
 router.post('/',asyncHandler (async function(req,res) {
@@ -23,6 +24,7 @@ router.post('/',asyncHandler (async function(req,res) {
     user.save();
     
     return res.redirect('/logout');
+
 }));
 
 module.exports = router;

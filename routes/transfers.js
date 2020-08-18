@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const asyncHandler = require('express-async-handler')
 
 router.use(require('../middlewares/requireLoggedIn'));
+router.use(require('../middlewares/guestLogin'));
 
 
 router.get('/', asyncHandler (async function (req, res) {

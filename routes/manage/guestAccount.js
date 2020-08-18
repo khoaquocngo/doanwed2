@@ -17,14 +17,18 @@ router.get('/:email/block', asyncHandler(async function (req, res) {
     const user = await User.findUserByEmail(email);
     user.block = true;
     user.save();
+
     res.redirect("/guestAccount");
+
 }));
 router.get('/:email/unblock', asyncHandler(async function (req, res) {
     const email = req.params.email;
     const user = await User.findUserByEmail(email);
     user.block = false;
     user.save();
+
     res.redirect("/guestAccount");
+    
 }));
 
 module.exports = router;
