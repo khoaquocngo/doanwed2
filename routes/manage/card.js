@@ -43,6 +43,6 @@ router.post('/', asyncHandler (async function (req, res) {
 
     if(req.session.status != null) req.session.status = null;
     req.session.status = "Nạp tiền thành công";
-    res.redirect("/notification");
+    res.redirect("/notification2");
 }));
 module.exports = router;

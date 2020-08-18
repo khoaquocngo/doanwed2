@@ -20,7 +20,7 @@
 
 <body style="background-image: linear-gradient(to bottom right, rgb(66, 1, 1), rgb(253, 253, 253));">
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" style="font-family: Blippo, fantasy;color:  #000000;font-size: 25px; font-weight: normal;" href="/home">Internet Banking </a>
+        <a class="navbar-brand" style="font-family: Blippo, fantasy;color:  #000000;margin-left:4vw ;font-size: 25px; font-weight: normal;" href="/home">Internet Banking </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,33 +29,41 @@
       <div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/home">Trang chủ <span class="sr-only">(current)</span></a>
-                </li>
+                <div style="margin-left: 4vw;">
+                <h5 class="nav-item active" >
+                    <a class="nav-link" href="/home">Trang Chủ <span class="sr-only">(current)</span></a>
+                </h5>
+            </div>
+            <div style="margin-left: 2vw;">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản ▾</a>
+                    <h5 class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Tài khoản ▾</h5>
                     <div class="dropdown-menu">
                       <a class="dropdown-item" href="/accountNumber">Thông tin tài khoản</a>
                    
                       <a class="dropdown-item" href="changepassword">Bảo mật</a>
                     </div>
+                    </div>
                   </li>
-                  <li class="nav-item">
+                  <div style="margin-left: 2vw;">
+                  <h5 class="nav-item">
                     <a href="/transfers" class="nav-link">Chuyển tiền</a>
-                </li>
-                <li class="nav-item">
+                  </h5>
+            </div>
+            <div style="margin-left: 2vw;">
+                <h5 class="nav-item">
                     <a href="/save" class="nav-link">Gửi tiết kiệm</a>
-                </li>
-                
-                <li class="nav-item">
+                </h5>
+            </div>
+            <div style="margin-left: 2vw;">
+                <h5 class="nav-item">
                     <a href="/transactionHistory" class="nav-link">Lịch sử giao dịch</a>
-                </li>
-          
-                <div style="margin-left:28vw;">
-                <li>
+                </h5>
+            </div>
+                <div style="margin-left:3vw;">
+                <h5>
                     <% if(currentUser) {  %><a href="/logout" class="nav-link">Đăng xuất</a>
                     <% } else { %><a href="/login" class="item -link">Login</a> <% } %>
-                </li>
+                </h5>
             </ul>
         
         </div>
