@@ -3,7 +3,9 @@ const router = new Router();
 const User = require('../../services/user');
 const asyncHandler = require('express-async-handler');
 
+
 router.use(require('../../middlewares/requireLoggedIn'));
+router.use(require('../../middlewares/adminlogin'));
 router.use(require('../../middlewares/bosslogin'));
 
 router.get('/', asyncHandler(async function (req, res) {
@@ -36,6 +38,14 @@ router.get('/:email/unblock', asyncHandler(async function (req, res) {
     user.save();
     res.redirect("/adminAccount");
 
+}));
+
+router.get('/:email/reset', asyncHandler(async function (req, res) {
+    const email = req.params.email;
+    const user = await User.findUserByEmail(email);
+    user.password = User.hassPassword("123456");
+    user.save();
+    res.redirect("/adminAccount");
 }));
 
 module.exports = router;

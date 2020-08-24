@@ -102,7 +102,7 @@ User.init({
 
   },
   pictureCMND: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
 
   },
   block: {

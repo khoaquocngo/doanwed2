@@ -11,6 +11,14 @@ class InteRestate extends Model {
               }
           })
       }
+    
+    static async findName(Name) {
+        return InteRestate.findOne({
+              where:{
+                Name,
+              }
+          })
+      }
 
     static async find() {
         return InteRestate.findAll({

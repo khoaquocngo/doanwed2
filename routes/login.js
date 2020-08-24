@@ -21,8 +21,7 @@ router.post('/',asyncHandler(async function postLogin(req,res) {
     if(user.block === false) {
         req.session.userId = user.id;
         if(user.decentralize === 2 ||user.decentralize === 0) {
-            
-            return res.redirect('/adminAccount');
+            return res.redirect('/guestAccount');
         }
         
         if(user.token) {

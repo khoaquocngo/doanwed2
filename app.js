@@ -13,6 +13,8 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.use(bodyParser.json());
+
 
 //auth middlewares
 app.use(require('./middlewares/auth'));
@@ -33,6 +35,8 @@ app.use('/profile',require('./routes/profile'));
 app.use('/warning',require('./routes/warning'));
 app.use('/historyRecharge',require('./routes/manage/historyRecharge'));
 app.use('/fee',require('./routes/manage/fee'));
+app.use('/interests',require('./routes/manage/interests'));
+app.use('/confirmCMND',require('./routes/manage/confirmCMND'));
 app.use(require('./middlewares/auth'));
 app.use('/login',require('./routes/login'));
 app.use('/verification',require('./routes/verification'));

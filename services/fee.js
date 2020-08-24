@@ -11,6 +11,14 @@ class Fee extends Model {
               }
           })
       }
+
+      static async findName(Name){
+        return Fee.findOne({
+              where:{
+                Name,
+              }
+          })
+      }
 }
 Fee.init({
     // attributes

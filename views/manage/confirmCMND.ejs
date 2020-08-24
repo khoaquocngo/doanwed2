@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <table class="table table-striped table-dark">
+        <thead>
+          <hr>
+          <tr>
+            <th scope="col">STK</th>
+            <th scope="col">Họ và Tên</th>
+            <th scope="col">CMND</th>
+            <th scope="col">Ảnh CMND</th>
+            <th scope="col">Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% banks.forEach(function(banks){ %>
+          <tr>
+            <th scope="col"><%= banks.accountNumber %> </th>
+            <th scope="col"><%= banks.user.displayName %></th>
+            <th scope="col"><%= banks.user.CMND %></th>
+            <th scope="col"><img src="<%= banks.user.pictureCMND %>"></th>
+            <% if ( banks.user.codeCMND == 1) {%>
+            <th><a href="/confirmCMND/<%= banks.user.email%>/confirm">Xác thực</a> | <a href="/confirmCMND/<%= banks.user.email%>/unconfirm">Không xác thực</a></th>
+            <% }%>
+            <% if ( banks.user.codeCMND == 2) {%>
+                <th>Đã gửi yêu cầu cập nhật lại</th>
+                <% }%>
+                <% if ( banks.user.codeCMND == 0) {%>
+                    <th>Đã xác thực</th>
+                    <% }%>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+</body>
+</html>

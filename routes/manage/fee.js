@@ -16,7 +16,14 @@ router.get('/', asyncHandler (async function (req, res) {
 
 
 router.post('/', asyncHandler (async function (req, res) {
-  
+    const {namefee,fee} = req.body;
+    for(let i = 0; i < namefee.length; i++) {
+       let FEE = await Fee.findName(namefee[i]);
+       FEE.fee = fee[i];
+       FEE.Name = namefee[i]; 
+       FEE.save();
+    }
+    res.redirect('/fee');
 }));
 
 

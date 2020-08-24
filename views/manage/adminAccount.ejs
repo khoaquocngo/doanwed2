@@ -16,7 +16,7 @@
       <form action="" method="post">
           <input type="text" name="displayName" placeholder="Tên Đăng Nhập"  class= "form-control actt">
           <br>
-          <input type="text" name="username" placeholder="Tên Tài khoản" class= "form-control actt">
+          <input type="text" name="username" placeholder="Tên Nhân Viên" class= "form-control actt">
           <br>
           <input type="password" name="password" placeholder="Mật khẩu" class= "form-control actt">
       <br>
@@ -40,7 +40,7 @@
         <tr>
           <th scope="col"><%= user.email %> </th>
           <th scope="col"><%= user.displayName %></th>
-          <th scope="col">
+          <th scope="col"> <a href="adminAccount/<%=user.email%>/reset">Reset password</a> |
           <% if(user.block === false){ %> 
           <a href="adminAccount/<%=user.email%>/block">Khóa account</a>
           <% } else { %>

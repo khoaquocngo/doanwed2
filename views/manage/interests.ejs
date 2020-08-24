@@ -10,15 +10,17 @@
 <body>
     <form action="" method="post">
     
-        <% fees.forEach(function(fee){ %>
-            <label for="">Tên phí</label>
-            <input type="text"name="namefee" value="<%= fee.Name %>">
-            <br>
-            <hr>
-            <label for="">Số tiền</label>
-            <input type="number" name="fee" value="<%= fee.fee %>">  
-            <br>
-            <hr>
+        <% inteRestates.forEach(function(inteRestate){ %>
+           <div>
+            <label for="">Kì hạn lãi suất</label>
+            <input type="text"name="nameinterest" value="<%= inteRestate.Name %>">
+    
+            <label for="">Lãi suất</label>
+            <input type="number" name="interest"  step=0.01 value="<%= inteRestate.interest %>">  
+          
+            <label for="">Số tháng</label>
+            <input type="number" name="numberMonth" value="<%= inteRestate.numberMonth %>">  
+           </div>
         <% }); %>
        
       
