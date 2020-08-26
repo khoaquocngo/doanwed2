@@ -6,10 +6,10 @@
 <br />
 <hr />
 <h1 style="text-align: center;">Thông Tin Người Chuyển</h1>
-<div class="form-group">
+<div style="margin-left: 1.5%;" class="form-group">
 
     <h5 for="accountNumber">Tài khoản nguồn</h5>
-    <input type="text" class="form-control" id="accountNumber" name="accountNumber" value="<%= bank.accountNumber %>"
+    <input style="width:55%;margin-bottom: 10px;" type="text" class="form-control" id="accountNumber" name="accountNumber" value="<%= bank.accountNumber %>"
         disabled>
     <samp>Số dư khả dụng: <%= bank.defaultMoney %> VNĐ</samp>
 </div>
@@ -19,13 +19,13 @@
     <div class="col-md-7">
         <div class="container">
             <form method="POST" action="">
-                <div class="form-group">
+                <div style="margin-top:15px;" class="form-group">
                     <h5>Thông tin người hưởng</h5>
                   
                     <input type="text" class="form-control " name="beneficiary" id="beneficiary"
                         placeholder="Tài khoản đích/ VND">
                 </div>
-                <div class="form-group">
+                <div style="margin-top:25px;" class="form-group">
                     <h5>Thông tin giao dịch</h5>
                     <div class="input-group">
                         <input type="number" class="form-control" aria-label="Amount (to the nearest dollar)"
@@ -34,9 +34,9 @@
                             <span class="input-group-text">VNĐ</span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div style="margin-top:25px;" class="form-group">
                         <h5 for="">Phí giao dịch</h5>
-                        <select class="form-control" name="charge" id="charge">
+                        <select style="padding: 5;" class="form-control" name="charge" id="charge">
                             <option value="1">Người chuyển trả</option>
                             <option value="2">Người nhận trả</option>
                         </select>
@@ -45,7 +45,7 @@
                         <textarea class="form-control" name="content" id="content" rows="3"
                             placeholder="Nội dung"></textarea>
                     </div>
-                    <button style="margin-left:15vw;margin-right:11vw;" type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
+                    <button style="margin-left:15vw;margin-right:11vw;margin-top:10px;" type="submit" class="btn btn-primary mb-2">Tiếp tục</button>
             </form>
         </div>
 

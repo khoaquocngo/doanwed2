@@ -15,16 +15,16 @@
   <div>
     <div class="container">
       <form method="POST" action="" enctype="multipart/form-data" >
-        <div style="margin-left:11vw;margin-right:11vw;">
+        <div style="margin-left:20vw;margin-right:20vw;">
         <div class="form-group">
           <div>
             <h5 for="">Họ và tên:
-              <input type="text" class="form-control" name="displayName" id="displayName"
+              <input style="margin-top: 10px;" type="text" class="form-control" name="displayName" id="displayName"
                 value="<%= currentUser.displayName %> "></h5>
           </div>
           <div>
             <h5 for="">Email:
-              <input type="text" class="form-control" name="email" id="email" value="<%= currentUser.email %>" disabled>
+              <input style="margin-top: 10px;" type="text" class="form-control" name="email" id="email" value="<%= currentUser.email %>" disabled>
             </h5>
           </div>
           <div>
@@ -32,7 +32,7 @@
             <% if(currentUser.CMND && currentUser.codeCMND == "0"){ %>
             <div>
               <h5 for="">CMND:
-                <input type="text" name="CMND" id="CMND" value="<%= currentUser.CMND %>" disabled></h5>
+                <input style="margin-top: 10px;" type="text" name="CMND" id="CMND" value="<%= currentUser.CMND %>" disabled></h5>
             </div>
             <% }else { %>
               <% if(currentUser.CMND && currentUser.pictureCMND && currentUser.codeCMND == "1" ){ %>
@@ -42,7 +42,7 @@
                 <% } %>
               <div>
                 <h5 for="">CMND:
-                  <input type="text" class="form-control" name="CMND" id="CMND" value="<%= currentUser.CMND %>"></h5>
+                  <input style="margin-top: 10px;" type="text" class="form-control" name="CMND" id="CMND" value="<%= currentUser.CMND %>"></h5>
               </div>
               <div>
                 <h5 for="">Ảnh:
@@ -60,7 +60,7 @@
             <% } %>
 
           </div>
-          <button style="margin-left:20vw;margin-right:11vw;" type="submit" id = "submit" class="btn btn-primary mb-2">Cập Nhật</button>
+          <button style="margin-left:10vw;max-resolution: right 10px; justify-content: center;" type="submit" id = "submit" class="btn btn-primary mb-2">Cập Nhật</button>
           </hr>
         </div>
 
