@@ -40,7 +40,7 @@
         <tr>
           <th scope="col"><%= user.email %> </th>
           <th scope="col"><%= user.displayName %></th>
-          <th scope="col"> <a href="adminAccount/<%=user.email%>/reset">Reset password</a> |
+          <th scope="col"> <a href="adminAccount/<%=user.email%>/reset" style="margin-right:3vw">Reset password</a> 
           <% if(user.block === false){ %> 
           <a href="adminAccount/<%=user.email%>/block">Khóa account</a>
           <% } else { %>

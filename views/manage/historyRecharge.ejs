@@ -16,30 +16,19 @@
     </br>
     <h1 style="text-align: center;">Lịch Sử Nạp Tiền Của Khách Hàng</h1>
     <br>
-    <table class="table table-striped table-dark">
-      <thead>
-        <tr>
-          <th scope="col">Mã hóa đơn</th>
-          <th scope="col">Số tài khoản</th>
-          <th scope="col">Họ và tên</th>
-          <th scope="col">Số tiền</th>
-          <th scope="col">Ngày giao dịch</th>
-          <th scope="col">Nội dung</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% recharge.forEach(function(r){ %>
-        <tr>
-          <th scope="col"><%= r.code %></th>
-          <th scope="col"><%= r.accuontRecharge %></th>
-          <th scope="col"><%= r.nameRecharge %></th>
-          <th scope="col"><%= r.Money %></th>
-          <th scope="col"><%= r.date %></th>
-          <th scope="col"><%= r.content %></th>
-        </tr>
-        <% }); %>
-      </tbody>
-    </table>
+    <div class="container">
+      <ul class="list-group" >
+          <% recharge.forEach(function(r){ %>
+              <li class="list-group-item active">Mã hóa đơn: <%= r.code %> </li>
+              <li class="list-group-item">Số tài khoản: <%= r.accuontRecharge %></li>
+              <li class="list-group-item">Họ và tên: <%= r.nameRecharge %></li>
+              <li class="list-group-item">Số tiền:  <%= r.Money %></li>
+              <li class="list-group-item">Ngày giao dịch: <%= r.date %></li>  
+              <li class="list-group-item">Nội dung: <%= r.content %></li>  
+              <br>
+          <% }); %>
+      </ul>  
+  </div>
   </div>
   </div>
 </body>
