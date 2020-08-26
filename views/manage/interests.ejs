@@ -1,3 +1,4 @@
+<title>Phí tài khoản tiết kiệm</title>
 <%- include ('templateheader.ejs') -%>
 <%- include ('templateleft.ejs') -%>
 <br />
@@ -5,26 +6,27 @@
 <%- include ('templateright.ejs') -%>
 <br />
 
-<h1 style="text-align: center;">Quản Lý Chi Phí Chuyển Khoản</h1>
+<h1 style="text-align: center;">Phí tài khoản tiết kiệm</h1>
 <hr>
 <body>
     <form action="" method="post">
     
         <% inteRestates.forEach(function(inteRestate){ %>
            <div>
-            <label for="">Kì hạn lãi suất</label>
-            <input type="text"name="nameinterest" value="<%= inteRestate.Name %>">
+            <label for=""><h5>Kì hạn lãi suất</h5>
+            <input type="text"name="nameinterest" class="form-control acttc" value="<%= inteRestate.Name %>"></label>
     
-            <label for="">Lãi suất</label>
-            <input type="number" name="interest"  step=0.01 value="<%= inteRestate.interest %>">  
-          
-            <label for="">Số tháng</label>
-            <input type="number" name="numberMonth" value="<%= inteRestate.numberMonth %>">  
+            <label for=""><h5>Lãi suất</h5>
+            <input type="number" name="interest" class="form-control acttc"  step=0.01 value="<%= inteRestate.interest %>">  
+          </label>
+            <label for=""><h5>Số tháng</h5>
+            <input type="number" name="numberMonth" class="form-control acttc" value="<%= inteRestate.numberMonth %>">  </label>
            </div>
+           <hr/>
         <% }); %>
        
       
-        <button style="margin-left:25vw;margin-right:11vw;" type="submit" id = "submit" class= "form-control acttc">Thay Đổi</button>
+        <button style="margin-left:25vw;margin-right:11vw; margin-top: 2vw" type="submit" id = "submit" class= "form-control acttc">Thay Đổi</button>
     </form>
 </body>
    
@@ -36,7 +38,7 @@
     {
       width: 20vw;
       margin-left: auto;
-      margin-right: auto;
+      margin-right: 2vw;
   
     }
   </style>

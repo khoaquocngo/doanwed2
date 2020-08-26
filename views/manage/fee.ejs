@@ -1,3 +1,4 @@
+<title>Chi phí chuyển khoản</title>
 <%- include ('templateheader.ejs') -%>
 <%- include ('templateleft.ejs') -%>
 <br />
@@ -11,18 +12,18 @@
     <form action="" method="post">
     
         <% fees.forEach(function(fee){ %>
-            <label for="">Tên phí</label>
-            <input type="text"name="namefee" value="<%= fee.Name %>">
+            <label for=""> <h5>Tên phí</h5>
+            <input type="text" name="namefee" class="form-control acttc" id="namefee" value="<%= fee.Name %>"> </label>
             <br>
             <hr>
-            <label for="">Số tiền</label>
-            <input type="number" name="fee" value="<%= fee.fee %>">  
+            <label for=""><h5>Số tiền</h5>
+            <input type="number" name="fee" class="form-control acttc" id="fee" value="<%= fee.fee %>">  </label>
             <br>
             <hr>
         <% }); %>
        
       
-        <button style="margin-left:25vw;margin-right:11vw;" type="submit" id = "submit" class= "form-control acttc">Thay Đổi</button>
+        <button style="margin-left:5.5vw;margin-right:auto;" type="submit" id = "submit" class= "form-control acttc">Thay Đổi</button>
     </form>
 </body>
    
@@ -32,9 +33,14 @@
 <style>
     .acttc
     {
-      width: 20vw;
+      width: 30vw;
       margin-left: auto;
       margin-right: auto;
+      float: left;
   
+    }
+    h5 {
+        float:left;
+        margin-right: 1vw;
     }
   </style>
