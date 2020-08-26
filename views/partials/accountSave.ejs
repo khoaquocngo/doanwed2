@@ -29,7 +29,7 @@
             <% if (s.finalize == false) { %>
             <hr>
                 <h5>Lãi suất hiện tại:<input type="text" class="form-control" id="accountNumber" name="accountNumber" value="<%= s.interest %>" disabled>  </h5>
-            <a href="/accountSave/<%=s.code %>" >Tất Toán</a>
+            <button class="btn btn-primary mb-2" style="margin-left: 35%;"><a style="color: white;" href="/accountSave/<%=s.code %>" >Tất Toán</a></button>
             <% } else{ %>
                 <h5>Tổng lãi suất:<input type="text" class="form-control" id="accountNumber" name="accountNumber" value="<%= s.interest %>" disabled>  </h5>
             <% } %>
