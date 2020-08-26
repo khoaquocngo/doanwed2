@@ -18,6 +18,14 @@ router.get('/', asyncHandler (async function (req, res) {
     res.render('partials/Save',{interest});
 }));
 router.post('/', asyncHandler(async function (req, res) {
+   
+   if(req.currentUser.codeCMND != 0)
+        {
+            if(req.session.status)
+                req.session.status = null;
+            req.session.status = "Cập nhật CMND để mở tài khoản tiết kiệm"
+            return res.redirect("/notification");
+        }
     const {term,money} = req.body;
     const interest = await Interest.findid(term);
     //Tạo tài khoản tiết kiệm   
