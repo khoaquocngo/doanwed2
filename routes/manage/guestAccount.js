@@ -8,7 +8,7 @@ router.use(require('../../middlewares/adminlogin'));
 
 router.get('/', asyncHandler (async function (req, res) {
     const banks = await Bank.findAllUser();
-
+    console.log(banks);
     res.render('manage/guestAccount',{banks});
 
 }));

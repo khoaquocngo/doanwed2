@@ -100,4 +100,4 @@ Bank.init({
 User.hasMany(Bank);
 Bank.belongsTo(User);
 
-module.exports = Bank
+module.exports = Bank;
