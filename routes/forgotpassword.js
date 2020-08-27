@@ -6,7 +6,6 @@ const User = require('../services/user');
 const router = new Router();
 
 router.use(require('../middlewares/requirelogged'));
-router.use(require('../middlewares/guestLogin'));
 
 router.get('/', function(req,res){
     
