@@ -25,6 +25,7 @@
                   <li class="list-group-item active">Email: <%= bank.user.email %> </li>
                   <li class="list-group-item">Họ và tên: <%= bank.user.displayName %></li>
                   <li class="list-group-item">Số tài khoản: <%= bank.accountNumber %></li>
+                  <li class="list-group-item">CMND: <%= bank.user.CMND %></li>
                   <li class="list-group-item" style="margin-bottom: 2vw;"><a role="button" href="/card/<%= bank.accountNumber %>">Nạp tiền</a>
               <% }); %>
           </ul>  

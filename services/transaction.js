@@ -9,14 +9,20 @@ class Transaction extends Model {
         return Transaction.findOne({
               where:{
                   code,
-              }
+              },
+            
           })
       }
     static async findAllHistory(userId)
     {
         return Transaction.findAll({where: {
-            userId
-        }})
+            userId,
+            status: "Giao dịch thành công"
+        },
+        order: [ 
+            ['date', 'DESC'], 
+           ], 
+    })
     }
 
     static async findAllInDay(userId)

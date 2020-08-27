@@ -2,6 +2,7 @@ const {Router} = require('express');
 const router = new Router();
 const Bank = require('../services/bank')
 const Transaction = require('../services/transaction');
+const Fee = require('../services/fee');
 const Email = require('../services/email');
 const crypto = require('crypto');
 const asyncHandler = require('express-async-handler')
@@ -23,6 +24,16 @@ router.post('/', asyncHandler(async function (req, res) {
             return res.redirect("/notification");
         }
         const { money, charge, content } = req.body;
+        const moneymin = await Fee.findid(3);
+        const moneymax = await Fee.findid(4);
+        if(money < moneymin.fee || money > moneymax.fee    )
+        {
+            if( req.session.status != null)  req.session.status = null;
+            req.session.status = `Số tiền không phù hợp hạn mực trong khoản từ ${moneymin.fee} đến ${moneymax.fee}`;
+            return res.redirect("/notification");
+    
+        }
+
         const transaction = await Transaction.create({
             code: crypto.randomBytes(5).toString('hex').toUpperCase(),
             accuontSender: req.bank.accountNumber,

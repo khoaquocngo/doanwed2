@@ -5,6 +5,7 @@ const Save = require('../services/save');
 const asyncHandler = require('express-async-handler');
 const crypto = require('crypto');
 const Email = require('../services/email');
+const Fee = require('../services/fee');
 
 router.use(require('../middlewares/requireLoggedIn'));
 router.use(require('../middlewares/guestLogin'));
@@ -26,8 +27,20 @@ router.post('/', asyncHandler(async function (req, res) {
             req.session.status = "Cập nhật CMND để mở tài khoản tiết kiệm"
             return res.redirect("/notification");
         }
+    
     const {term,money} = req.body;
     const interest = await Interest.findid(term);
+
+    const moneymin = await Fee.findid(5);
+    const moneymax = await Fee.findid(6);
+    if(money < moneymin.fee || money > moneymax.fee    )
+    {
+        if( req.session.status != null)  req.session.status = null;
+        req.session.status = `Số tiền không phù hợp với hạn mực mở thẻ tiết kiểm trong khoản từ ${moneymin.fee} đến ${moneymax.fee}`;
+        return res.redirect("/notification");
+
+    }
+
     //Tạo tài khoản tiết kiệm   
     if(req.bank.defaultMoney >= money) {
        const s =  await Save.create({

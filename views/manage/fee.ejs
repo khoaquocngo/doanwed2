@@ -13,9 +13,8 @@
     
         <% fees.forEach(function(fee){ %>
             <label for=""> <h5>Tên phí</h5>
-            <input type="text" name="namefee" class="form-control acttc" id="namefee" value="<%= fee.Name %>"> </label>
+            <input type="text" style="margin-bottom:  20px;" name="namefee" class="form-control acttc" id="namefee" value="<%= fee.Name %>"> </label>
             <br>
-            <hr>
             <label for=""><h5>Số tiền</h5>
             <input type="number" name="fee" class="form-control acttc" id="fee" value="<%= fee.fee %>">  </label>
             <br>

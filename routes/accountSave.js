@@ -46,6 +46,7 @@ router.get('/', asyncHandler(async function (req, res) {
         s.finalize = true;
       }
       s.interest = insterest(s);
+      console.log( s.interest);
       if(s.finalize == true) {
           s.finalizeDate = Date.now();
           m =  s.interest  + s.Money;
