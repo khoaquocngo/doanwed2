@@ -38,11 +38,11 @@ router.post('/', asyncHandler(async function (req, res) {
         if( req.session.status != null)  req.session.status = null;
         req.session.status = `Số tiền không phù hợp với hạn mực mở thẻ tiết kiểm trong khoản từ ${moneymin.fee} đến ${moneymax.fee}`;
         return res.redirect("/notification");
-
     }
 
     //Tạo tài khoản tiết kiệm   
     if(req.bank.defaultMoney >= money) {
+        console.log("saddas");
        const s =  await Save.create({
         code: crypto.randomBytes(12).toString('hex').toUpperCase(),
         Money: money,
@@ -55,14 +55,11 @@ router.post('/', asyncHandler(async function (req, res) {
         req.bank.defaultMoney = req.bank.defaultMoney - money;
         req.bank.save();
 
-        await Email.send( req.currentUser.email,'SAVE',`TK tiết kiệm được mở ${s.code} với số tiền gửi: ${money}VNĐ. SD TK ${req.bank.accountNumber} còn ${req.bank.defaultMoney}VNĐ vào lúc ${time}`) 
-
-
-
+        await Email.send( req.currentUser.email,'SAVE',`TK tiết kiệm được mở ${s.code} với số tiền gửi: ${money}VNĐ. SD TK ${req.bank.accountNumber} còn ${req.bank.defaultMoney}VNĐ vào lúc ${time}`) ;
         
     } else {
-        war = 'Tài khoản không đủ';
-        res.render('partials/Save',{war});
+        req.session.status = "Tài khoản không đủ";
+        return res.redirect('/notification');
     }
     if(req.session.status != null) req.session.status = null;
     req.session.status = "Mở tài khoản tiết kiệm thành công";
