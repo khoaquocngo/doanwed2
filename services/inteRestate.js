@@ -33,15 +33,12 @@ InteRestate.init({
     // attributes
     Name: {
         type: Sequelize.STRING,
-        allowNull: false,
     },
     interest: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
     },
     numberMonth: {
         type: Sequelize.INTEGER,
-        allowNull: false,
     }
     
 }, 

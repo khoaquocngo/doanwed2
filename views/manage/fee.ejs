@@ -12,6 +12,7 @@
     <form action="" method="post">
     
         <% fees.forEach(function(fee){ %>
+            <input type="number" name="id" style="display: none;" value="<%= fee.id %>">
             <label for=""> <h5>Tên phí</h5>
             <input type="text" style="margin-bottom:  20px;" name="namefee" class="form-control acttc" id="namefee" value="<%= fee.Name %>"> </label>
             <br>

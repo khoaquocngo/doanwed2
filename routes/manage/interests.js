@@ -15,13 +15,17 @@ router.get('/', asyncHandler (async function (req, res) {
 
 
 router.post('/', asyncHandler (async function (req, res) {
-    const {nameinterest,interest,numberMonth} = req.body;
-    for(let i = 0; i < nameinterest.length; i++) {
-       let InteRestates = await InteRestate.findName(nameinterest[i]);
-       InteRestates.Name = nameinterest[i];
-       InteRestates.interest = interest[i];
-       InteRestates.numberMonth = numberMonth[i];
-       InteRestates.save();
+    const {id,nameinterest,interest,numberMonth} = req.body;
+    var i = 0;
+
+    while(id.length > i) {   
+        var ir = await InteRestate.findByPk(Number(id[i]));
+       
+        ir.Name = nameinterest[i];
+        ir.interest = interest[i];
+        ir.numberMonth = numberMonth[i];
+        ir.save();
+        i++;
     }
     res.redirect('/interests');
 }));

@@ -8,14 +8,24 @@ class Fee extends Model {
         return Fee.findOne({
               where:{
                   id,
-              }
+              },
+           
+          })
+      }
+
+      static async findAlls(id){
+        return Fee.findAll({
+            order: [
+                ['id', 'ASC']
+            ],
+           
           })
       }
 
       static async findName(Name){
         return Fee.findOne({
               where:{
-                Name,
+                Name:Name
               }
           })
       }
@@ -24,11 +34,9 @@ Fee.init({
     // attributes
     Name: {
         type: Sequelize.STRING,
-        allowNull: false,
     },
     fee: {
         type: Sequelize.DOUBLE,
-        allowNull: false,
     },
     
 

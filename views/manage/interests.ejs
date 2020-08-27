@@ -13,6 +13,7 @@
     
         <% inteRestates.forEach(function(inteRestate){ %>
            <div>
+            <input type="number" name="id" style="display: none;" value="<%= inteRestate.id %>">
             <label for=""><h5>Kì hạn lãi suất</h5>
             <input type="text"name="nameinterest" class="form-control acttc" value="<%= inteRestate.Name %>"></label>
     
