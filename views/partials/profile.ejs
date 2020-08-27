@@ -110,7 +110,7 @@
       imageCMND= base64;
       displayName=$("#displayName").val();
       CMND=$("#CMND").val();
-      $.post(`${process.env.BASE_URL}/profile`,{imageCMND: imageCMND,displayName:displayName, CMND:CMND }, function(data){
+      $.post("/profile",{imageCMND: imageCMND,displayName:displayName, CMND:CMND }, function(data){
         if(data==='yes') {
             console.log("success");
           }
