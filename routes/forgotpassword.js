@@ -16,7 +16,10 @@ router.get('/', function(req,res){
 router.post('/',asyncHandler (async function (req,res){
     
     req.session.email = req.body.email;
-    user = await User.findUserByEmail(req.body.email);
+    var user = await User.findUserByEmail(req.body.email);
+    if(!user) {
+        return  res.redirect('/forgotpassword');;
+    }
     user.codeForgot = crypto.randomBytes(3).toString('hex').toUpperCase();
     user.save();
     await Email.send(user.email,'Mã xác nhận quên mật khẩu của bạn: ',`${user.codeForgot}`)
