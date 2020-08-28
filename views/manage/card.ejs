@@ -5,16 +5,27 @@
 
 <%- include ('templateright.ejs') -%>
 <br />
+
 <hr />
+
 <h1 style="text-align: center;">Nạp Tiền Tài Khoản</h1>
 <hr>
 <body>
-    <p style="float: left;">Tên tài khoản: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-      value="<%= bank.user.displayName %>"style="width: 20vw; float: right; margin-left: 5vw; "> </p>
-      <br/>
+    <p style="float: left;">Tên tài khoản: 
+      
+      <input 
+      type="text" class="form-control" id="accountNumber" name="accountNumber"
+      value="<%= bank.user.displayName %>"style="width: 20vw; float: right; margin-left: 5vw; "> 
+    </p>
+
+    <br/>
     </br>
-    <p style="float: left; clear: both;">Tài khoản mặc định: <input type="text" class="form-control" id="accountNumber" name="accountNumber"
-      value="<%= bank.accountNumber %>" style="width: 20vw; float: right; margin-left: 2vw; "> </p>
+    <p style="float: left; clear: both;">
+      Tài khoản mặc định: 
+      <input 
+        type="text" class="form-control" id="accountNumber" name="accountNumber"
+        value="<%= bank.accountNumber %>" style="width: 20vw; float: right; margin-left: 2vw; ">
+      </p>
     <br>
     <br>
     <form action="" method="post">
