@@ -1,16 +1,21 @@
 <title>Thông tin cá nhân</title>
 <link rel="stylesheet" href="css/imgcmn.css">
 <script src=""></script>
+
 <%- include ('templateheader.ejs') -%>
 <%- include ('templateleft.ejs') -%>
 <br />
+
 
 <%- include ('templateright.ejs') -%>
 <br />
 <div>
   <h1 style="text-align: center;">Cập Nhật Thông Tin Tài Khoản</h1>
+
   <br />
+  
   <hr />
+
 </div>
 <div>
   <div>
@@ -23,6 +28,7 @@
               <input style="margin-top: 10px;" type="text" class="form-control" name="displayName" id="displayName"
                 value="<%= currentUser.displayName %> "></h5>
           </div>
+
           <div>
             <h5 for="">Email:
               <input style="margin-top: 10px;" type="text" class="form-control" name="email" id="email" value="<%= currentUser.email %>" disabled>
@@ -35,16 +41,19 @@
               <h5 for="">CMND:
                 <input style="margin-top: 10px;" class="form-control"  type="text" name="CMND" id="CMND" value="<%= currentUser.CMND %>" disabled></h5>
             </div>
+
             <% }else { %>
               <% if(currentUser.CMND && currentUser.pictureCMND && currentUser.codeCMND == "1" ){ %>
               <% } %>
               <% if(currentUser.CMND && currentUser.pictureCMND && currentUser.codeCMND == "2" ){ %>
                 <p>CMND chưa đầy đủ mong bạn cập nhật lại</p>
                 <% } %>
+
               <div>
                 <h5 for="">CMND:
                   <input style="margin-top: 10px;" type="text" class="form-control" name="CMND" id="CMND" value="<%= currentUser.CMND %>"></h5>
               </div>
+
               <div>
                 <h5 for="">Ảnh:
                   <div>
